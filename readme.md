@@ -12,7 +12,8 @@ comparer les perf sur 2 prog :
 - matrix multiply => taille des matrices 2x celle du cache le plus gros
 - code c ou c++ d'un algo de graphe ( boost )
 
-compiler les programmes avec toutes les options de compil
-calculer le temps 12 fois pour chaque executable
-utiliser R pour faire des boites a moustache
-checker les autres options d'opti et voir laquelle fait quoi
+a faire :
+- compiler les programmes avec toutes les options de compil
+- calculer le temps 12 fois pour chaque executable
+- utiliser R pour faire des boites a moustache
+- checker les autres options d'opti et voir laquelle fait quoi
