@@ -4,6 +4,8 @@ programs=("matrix-multiply")
 compilers=("gcc" "icx" "clang" "ccomp")
 optimizations=("-O0" "-O1" "-O2" "-O3" "-Os")
 
+
+echo "compilation, temps" >> time_data.csv
 for prog in "${programs[@]}";
 do
     for comp in "${compilers[@]}";
@@ -16,7 +18,7 @@ do
                 #/usr/bin/time -f "%e" ./$prog-$comp$opt 2>> time_data.txt > /dev/null
                 /usr/bin/time -f %e ./$prog-$comp$opt > /dev/null 2> zob.txt
                 exec_time=$(cat zob.txt)
-                echo "$comp$opt : $exec_time" >> time_data.txt
+                echo "$comp$opt, $exec_time" >> time_data.csv
             done;
         done
     done
