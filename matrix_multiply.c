@@ -1,6 +1,26 @@
 #include <stdio.h>
+#include <time.h>
+#include <sys/time.h>
+#include <stdlib.h>
+
+#ifndef N
+#define N 2000
+#endif
+
+#ifndef M
+#define M 2000
+#endif
+
+#ifndef P
+#define P 2000
+#endif
+
+#define MAX_RANGE 100
 
 float A[N][P], B[P][M], C[N][M];
+
+struct timeval t1, t2;
+float temps_execution;
 
 void mat_mult()
 {
@@ -15,11 +35,12 @@ void mat_mult()
 
 int main()
 {
+    srand(time(NULL));
     for ( int i = 0; i < N; i++ )
     {
         for ( int j = 0; j < P; j++ )
         {
-            A[i][j] = 1.5f;
+            A[i][j] = ((float)rand()/(float)RAND_MAX)*MAX_RANGE;
         }
     }
 
@@ -27,17 +48,28 @@ int main()
     {
         for ( int j = 0; j < M; j++ )
         {
-            B[i][j] = 1.4f;
+            B[i][j] = ((float)rand()/(float)RAND_MAX)*MAX_RANGE;
         }
     }
 
+    gettimeofday(&t1, NULL);
     mat_mult();
+    gettimeofday(&t2, NULL);
 
-    printf("%f", A[500][500]);
-    printf("%f", A[1500][1500]);
-    printf("%f", B[500][500]);
-    printf("%f", B[1500][1500]);
-    printf("%f", C[500][500]);
-    printf("%f", C[1500][1500]);
+    temps_execution = (float)((t2.tv_sec - t1.tv_sec) * 1000000 + (t2.tv_usec - t1.tv_usec)) / 1000000;
+
+    printf("%f", A[(int)(0.25 * (N - 1))][(int)(0.25 * (P - 1))]);
+    printf("%f", A[(int)(0.5 * (N - 1))][(int)(0.5 * (P - 1))]);
+    printf("%f", A[(int)(0.75 * (N - 1))][(int)(0.75 * (P - 1))]);
+    
+    printf("%f", B[(int)(0.25 * (P - 1))][(int)(0.25 * (M - 1))]);
+    printf("%f", B[(int)(0.5 * (P - 1))][(int)(0.5 * (M - 1))]);
+    printf("%f", B[(int)(0.75 * (P - 1))][(int)(0.75 * (M - 1))]);
+    
+    printf("%f", C[(int)(0.25 * (N - 1))][(int)(0.25 * (M - 1))]);
+    printf("%f", C[(int)(0.5 * (N - 1))][(int)(0.5 * (M - 1))]);
+    printf("%f", C[(int)(0.75 * (N - 1))][(int)(0.75 * (M - 1))]);
+
+    fprintf(stderr, "%f\n", temps_execution);
     return 0;
 }
