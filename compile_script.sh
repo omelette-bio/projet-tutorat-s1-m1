@@ -14,10 +14,10 @@ do
     done
 done
 
-for comp in "${compilerspp[@]}";
-do
-    for opt in "${optimizations[@]}";
-    do
-        $comp $opt djikstra.cpp -o bin/djikstra-$comp$opt
-    done
-done
+# for comp in "${compilerspp[@]}";
+# do
+#     for opt in "${optimizations[@]}";
+#     do
+#         $comp $opt djikstra.cpp -o bin/djikstra-$comp$opt
+#     done
+# done

@@ -3,11 +3,14 @@
 #include <queue>
 #include <limits>
 #include <random>
-#include <chrono>
+#include <sys/time.h>
 
 using namespace std;
 
 const int INF = numeric_limits<int>::max();
+
+struct timeval t1, t2;
+float temps_execution;
 
 struct Edge {
     int to, weight;
@@ -78,12 +81,13 @@ int main() {
 
     Graph graph = generate_large_graph(nodes, edges);
 
-    auto start_time = chrono::high_resolution_clock::now();
+    gettimeofday(&t1, NULL);
     vector<int> distances = dijkstra(graph, 0);
-    auto end_time = chrono::high_resolution_clock::now();
-    auto duration = chrono::duration_cast<chrono::milliseconds>(end_time - start_time);
+    gettimeofday(&t2, NULL);
 
-    cout << "Time taken by Dijkstra's algorithm with extra allocations: " << duration.count() << " milliseconds" << endl;
+    temps_execution = (float)((t2.tv_sec - t1.tv_sec) * 1000000 + (t2.tv_usec - t1.tv_usec)) / 1000000;
+
+    cout << "Time taken by Dijkstra's algorithm with extra allocations: " << temps_execution << " secondes" << endl;
 
     // Clean up allocated edges
     for (auto& edges : graph)

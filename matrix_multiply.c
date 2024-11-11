@@ -58,18 +58,18 @@ int main()
 
     temps_execution = (float)((t2.tv_sec - t1.tv_sec) * 1000000 + (t2.tv_usec - t1.tv_usec)) / 1000000;
 
-    printf("%f", A[(int)(0.25 * (N - 1))][(int)(0.25 * (P - 1))]);
-    printf("%f", A[(int)(0.5 * (N - 1))][(int)(0.5 * (P - 1))]);
-    printf("%f", A[(int)(0.75 * (N - 1))][(int)(0.75 * (P - 1))]);
+    fprintf(stderr, "%f", A[(int)(0.25 * (N - 1))][(int)(0.25 * (P - 1))]);
+    fprintf(stderr, "%f", A[(int)(0.5 * (N - 1))][(int)(0.5 * (P - 1))]);
+    fprintf(stderr, "%f", A[(int)(0.75 * (N - 1))][(int)(0.75 * (P - 1))]);
     
-    printf("%f", B[(int)(0.25 * (P - 1))][(int)(0.25 * (M - 1))]);
-    printf("%f", B[(int)(0.5 * (P - 1))][(int)(0.5 * (M - 1))]);
-    printf("%f", B[(int)(0.75 * (P - 1))][(int)(0.75 * (M - 1))]);
+    fprintf(stderr, "%f", B[(int)(0.25 * (P - 1))][(int)(0.25 * (M - 1))]);
+    fprintf(stderr, "%f", B[(int)(0.5 * (P - 1))][(int)(0.5 * (M - 1))]);
+    fprintf(stderr, "%f", B[(int)(0.75 * (P - 1))][(int)(0.75 * (M - 1))]);
     
-    printf("%f", C[(int)(0.25 * (N - 1))][(int)(0.25 * (M - 1))]);
-    printf("%f", C[(int)(0.5 * (N - 1))][(int)(0.5 * (M - 1))]);
-    printf("%f", C[(int)(0.75 * (N - 1))][(int)(0.75 * (M - 1))]);
+    fprintf(stderr, "%f", C[(int)(0.25 * (N - 1))][(int)(0.25 * (M - 1))]);
+    fprintf(stderr, "%f", C[(int)(0.5 * (N - 1))][(int)(0.5 * (M - 1))]);
+    fprintf(stderr, "%f", C[(int)(0.75 * (N - 1))][(int)(0.75 * (M - 1))]);
 
-    fprintf(stderr, "%f\n", temps_execution);
+    printf("%f\n", temps_execution);
     return 0;
 }
