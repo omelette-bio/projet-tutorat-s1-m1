@@ -1,23 +1,39 @@
+# Charger ggplot2
 library(ggplot2)
+library(dplyr)
 
-# Step 1: Read the CSV file
-data <- read.csv("time_data_backup.csv")
+data <- read.csv("time_datas/01.csv")
+
+label_positions <- data %>%
+  group_by(optimisation, compilateur) %>%
+  summarize(
+    max_temps = max(temps), # La position maximale pour placer le label
+    .groups = "drop"
+  )
 
 
-# Create the plot and store it in a variable
-p <- ggplot(data, aes(x = compilation, y = temps, fill = compilation)) +
-  geom_violin(trim = FALSE) +  # Violin plot for density
-  geom_boxplot(width = 0.1, color = "black", alpha = 0.5, outlier.shape = NA) +
-  stat_summary(fun = mean, geom = "point", shape = 15, size = 1, color = "white") +
-  facet_grid(. ~ optimisation, scales = "free_x", space = "free_x") +
-  labs(title = "Comparaison du Temps de Compilation par Compilateur et Niveau d'Optimisation", # nolint
-       x = "Compilateur",
-       y = "Temps (secondes)") +
+# Créer le boxplot
+p <- ggplot(data, aes(x = optimisation, y = temps, fill = compilateur)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_vline(xintercept = positions_separation, color = "gray") +
+  geom_text(
+    data = label_positions,
+    aes(
+      x = optimisation,
+      y = max_temps + 0.5,
+      label = compilateur,
+      color = compilateur
+    ),
+    inherit.aes = FALSE,
+    position = position_dodge(width = 0.75),
+    vjust = 0
+  ) +
+  labs(
+    title = "Boxplots des temps par optimisation et compilateur",
+    x = "Optimisation",
+    y = "Temps"
+  ) +
   theme_minimal() +
-  theme(panel.spacing = unit(1, "lines"),
-        strip.text = element_text(face = "bold"),
-        legend.position = "none") +  # Removes the legend
-  scale_fill_brewer(palette = "Pastel1")
+  scale_fill_brewer(palette = "Set3") # Palette de couleurs
 
-# Print the plot
 print(p)

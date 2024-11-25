@@ -1,4 +1,4 @@
-compilation,optimisation,temps
+compilateur,optimisation,temps
 gcc,O0,24.24
 gcc,O0,23.13
 gcc,O0,23.28
