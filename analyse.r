@@ -1,21 +1,27 @@
-# Charger ggplot2
 library(ggplot2)
 library(dplyr)
 
-data <- read.csv("time_datas/01.csv")
+# Load the CSV and name it appropriately
+my_data <- read.csv("time_data.csv")
 
-label_positions <- data %>%
+# Calculate label positions for both maximum and minimum
+label_positions <- my_data %>%
   group_by(optimisation, compilateur) %>%
   summarize(
-    max_temps = max(temps), # La position maximale pour placer le label
+    max_temps = max(temps),  # Top of the boxplot
     .groups = "drop"
   )
 
+positions_labels <- my_data %>%
+  group_by(optimisation, compilateur) %>%
+  summarise(
+    y_pos = min(temps) - 2, # Bottom for text labels
+    .groups = "drop"
+  )
 
-# Créer le boxplot
-p <- ggplot(data, aes(x = optimisation, y = temps, fill = compilateur)) +
+# Create the boxplot
+p <- ggplot(my_data, aes(x = optimisation, y = temps, fill = compilateur)) +
   geom_boxplot(outlier.shape = NA) +
-  geom_vline(xintercept = positions_separation, color = "gray") +
   geom_text(
     data = label_positions,
     aes(
@@ -34,6 +40,7 @@ p <- ggplot(data, aes(x = optimisation, y = temps, fill = compilateur)) +
     y = "Temps"
   ) +
   theme_minimal() +
-  scale_fill_brewer(palette = "Set3") # Palette de couleurs
+  scale_fill_brewer(palette = "Set3")
 
+# Print the plot
 print(p)

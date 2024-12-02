@@ -87,7 +87,7 @@ int main() {
 
     temps_execution = (float)((t2.tv_sec - t1.tv_sec) * 1000000 + (t2.tv_usec - t1.tv_usec)) / 1000000;
 
-    cout << "Time taken by Dijkstra's algorithm with extra allocations: " << temps_execution << " secondes" << endl;
+    printf("%f\n", temps_execution);
 
     // Clean up allocated edges
     for (auto& edges : graph)
