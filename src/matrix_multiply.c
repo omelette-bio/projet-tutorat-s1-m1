@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <sys/time.h>
 #include <stdlib.h>
+#include <time.h>
 
 #ifndef N
 #define N 2000
