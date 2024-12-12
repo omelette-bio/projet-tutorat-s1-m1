@@ -1,0 +1,135 @@
+-falign-functions
+Align the start of functions.
+
+-falign-jumps
+Align labels which are only reached by jumping.
+
+-falign-labels
+Align all labels.
+
+-falign-loops
+Align the start of loops.
+
+-fcaller-saves
+Save registers around function calls.
+
+-fcode-hoisting
+Enable code hoisting.
+
+-fcrossjumping
+Perform cross-jumping optimization.
+
+-fcse-follow-jumps
+When running CSE, follow jumps to their targets.
+
+-fdevirtualize
+Try to convert virtual calls to direct ones.
+
+-fdevirtualize-speculatively
+Perform speculative devirtualization.
+
+-fexpensive-optimizations
+Perform a number of minor, expensive optimizations.
+
+-fgcse
+Perform global common subexpression elimination.
+
+-fhoist-adjacent-loads
+Enable hoisting adjacent loads to encourage generating conditional move instructions.
+
+-findirect-inlining
+Perform indirect inlining.
+
+-finline-functions
+Integrate functions not declared "inline" into their callers when profitable.
+
+-finline-small-functions
+Integrate functions into their callers when code size is known not to grow.
+
+-fipa-bit-cp
+Perform interprocedural bitwise constant propagation.
+
+-fipa-cp
+Perform interprocedural constant propagation.
+
+-fipa-icf
+Perform Identical Code Folding for functions and read-only variables.
+
+-fipa-icf-functions
+Perform Identical Code Folding for functions.
+
+-fipa-icf-variables
+Perform Identical Code Folding for variables.
+
+-fipa-ra
+Use caller save register across calls if possible.
+
+-fipa-sra
+Perform interprocedural reduction of aggregates.
+
+-fipa-vrp
+Perform IPA Value Range Propagation.
+
+-fisolate-erroneous-paths-dereference
+Detect paths that trigger erroneous or undefined behavior due to dereferencing a null pointer. Isolate those paths from the main control flow and turn the statement with
+
+-flra-remat
+Do CFG-sensitive rematerialization in LRA.
+
+-foptimize-sibling-calls
+Optimize sibling and tail recursive calls.
+
+-foptimize-strlen
+Enable string length optimizations on trees.
+
+-fpartial-inlining
+Perform partial inlining.
+
+-fpeephole2
+Enable an RTL peephole pass before sched2.
+
+-free
+Turn on Redundant Extensions Elimination pass.
+
+-freorder-blocks-and-partition
+Reorder basic blocks and partition into hot and cold sections.
+
+-freorder-functions
+Reorder functions to improve code placement.
+
+-frerun-cse-after-loop
+Add a common subexpression elimination pass after loop optimizations.
+
+-fschedule-insns2
+Reschedule instructions after register allocation.
+
+-fstore-merging
+Merge adjacent stores.
+
+-fstrict-aliasing
+Assume strict aliasing rules apply.
+
+-ftree-loop-distribute-patterns
+Enable loop distribution for patterns transformed into a library call.
+
+-ftree-loop-vectorize
+Enable loop vectorization on trees.
+
+-ftree-pre
+Enable SSA-PRE optimization on trees.
+
+-ftree-slp-vectorize
+Enable basic block vectorization (SLP) on trees.
+
+-ftree-switch-conversion
+Perform conversions of switch initializations.
+
+-ftree-tail-merge
+Enable tail merging on trees.
+
+-ftree-vrp
+Perform Value Range Propagation on trees.
+
+-funroll-loops
+Perform loop unrolling when iteration count is known.
+

@@ -1,0 +1,5 @@
+gcc --help=optimizers
+voir la description des options d'optimisation
+
+gcc -Q --help=optimizers -O<number>
+voir quelles sont les options activees pour un niveau d'optimisation donne

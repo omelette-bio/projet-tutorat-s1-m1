@@ -1,0 +1,279 @@
+-faggressive-loop-optimizations
+Aggressively optimize loops using language constraints.
+
+-fallocation-dce
+Tell DCE to remove unused C++ allocations.
+
+-fasynchronous-unwind-tables
+Generate unwind tables that are exact at each instruction boundary.
+
+-fauto-inc-dec
+Generate auto-inc/dec instructions.
+
+-fbit-tests
+Use bit tests for sufficiently large switch statements.
+
+-fbranch-count-reg
+Replace add, compare, branch with branch on count register.
+
+-fcombine-stack-adjustments
+Looks for opportunities to reduce stack adjustments and stack references.
+
+-fcompare-elim
+Perform comparison elimination after register allocation has finished.
+
+-fcprop-registers
+Perform a register copy-propagation optimization pass.
+
+-fdce
+Use the RTL dead code elimination pass.
+
+-fdefer-pop
+Defer popping functions args from stack until later.
+
+-fdse
+Use the RTL dead store elimination pass.
+
+-fearly-inlining
+Perform early inlining.
+
+-ffold-mem-offsets
+Fold instructions calculating memory offsets to the memory access instruction if possible.
+
+-fforward-propagate
+Perform a forward propagation pass on RTL.
+
+-ffp-int-builtin-inexact
+Allow built-in functions ceil, floor, round, trunc to raise "inexact" exceptions.
+
+-ffunction-cse
+Allow function addresses to be held in registers.
+
+-fgcse-lm
+Perform enhanced load motion during global common subexpression elimination.
+
+-fguess-branch-probability
+Enable guessing of branch probabilities.
+
+-fif-conversion
+Perform conversion of conditional jumps to branchless equivalents.
+
+-fif-conversion2
+Perform conversion of conditional jumps to conditional execution.
+
+-finline
+Enable inlining of function declared "inline", disabling disables all inlining.
+
+-finline-atomics
+Inline __atomic operations when a lock free instruction sequence is available.
+
+-finline-functions-called-once
+Integrate functions only required by their single caller.
+
+-fipa-modref
+Perform interprocedural modref analysis.
+
+-fipa-profile
+Perform interprocedural profile propagation.
+
+-fipa-pure-const
+Discover pure and const functions.
+
+-fipa-reference
+Discover read-only and non addressable static variables.
+
+-fipa-reference-addressable
+Discover read-only, write-only and non-addressable static variables.
+
+-fipa-stack-alignment
+Reduce stack alignment on call sites if possible.
+
+-fipa-strict-aliasing
+Assume strict aliasing rules apply across (uninlined) function boundaries.
+
+-fira-hoist-pressure
+Use IRA based register pressure calculation in RTL hoist optimizations.
+
+-fira-share-save-slots
+Share slots for saving different hard registers.
+
+-fira-share-spill-slots
+Share stack slots for spilled pseudo-registers.
+
+-fivopts
+Optimize induction variables on trees.
+
+-fjump-tables
+Use jump tables for sufficiently large switch statements.
+
+-flifetime-dse
+Tell DSE that the storage for a C++ object is dead when the constructor starts and when the destructor finishes.
+
+-fmath-errno
+Set errno after built-in math functions.
+
+-fmove-loop-invariants
+Move loop invariant computations out of loops.
+
+-fmove-loop-stores
+Move stores out of loops.
+
+-fno-inline-stringops
+This option lacks documentation.
+
+-fomit-frame-pointer
+When possible do not generate stack frames.
+
+-fpeephole
+Enable machine specific peephole optimizations.
+
+-fplt
+Use PLT for PIC calls (-fno-plt: load the address from GOT at call site).
+
+-fprintf-return-value
+Treat known sprintf return values as constants.
+
+-freg-struct-return
+Return small aggregates in registers.
+
+-freorder-blocks
+Reorder basic blocks to improve code placement.
+
+-fsched-critical-path-heuristic
+Enable the critical path heuristic in the scheduler.
+
+-fsched-dep-count-heuristic
+Enable the dependent count heuristic in the scheduler.
+
+-fsched-group-heuristic
+Enable the group heuristic in the scheduler.
+
+-fsched-interblock
+Enable scheduling across basic blocks.
+
+-fsched-last-insn-heuristic
+Enable the last instruction heuristic in the scheduler.
+
+-fsched-rank-heuristic
+Enable the rank heuristic in the scheduler.
+
+-fsched-spec
+Allow speculative motion of non-loads.
+
+-fsched-spec-insn-heuristic
+Enable the speculative instruction heuristic in the scheduler.
+
+-fsched-stalled-insns-dep
+Set dependence distance checking in premature scheduling of queued insns.
+
+-fschedule-fusion
+Perform a target dependent instruction fusion optimization pass.
+
+-fsemantic-interposition
+Allow interposing function (or variables) by ones with different semantics (or initializer) respectively by dynamic linker.
+
+-fshort-enums
+Use the narrowest integer type possible for enumeration types.
+
+-fshrink-wrap
+Emit function prologues only before parts of the function that need it, rather than at the top of the function.
+
+-fshrink-wrap-separate
+Shrink-wrap parts of the prologue and epilogue separately.
+
+-fsigned-zeros
+Disable floating point optimizations that ignore the IEEE signedness of zero.
+
+-fsplit-ivs-in-unroller
+Split lifetimes of induction variables when loops are unrolled.
+
+-fsplit-wide-types
+Split wide types into independent registers.
+
+-fssa-backprop
+Enable backward propagation of use properties at the SSA level.
+
+-fssa-phiopt
+Optimize conditional patterns using SSA PHI nodes.
+
+-fstdarg-opt
+Optimize amount of stdarg registers saved to stack at start of function.
+
+-fthread-jumps
+Perform jump threading optimizations.
+
+-ftoplevel-reorder
+Reorder top level functions, variables, and asms.
+
+-ftrapping-math
+Assume floating-point operations can trap.
+
+-ftree-bit-ccp
+Enable SSA-BIT-CCP optimization on trees.
+
+-ftree-builtin-call-dce
+Enable conditional dead code elimination for builtin calls.
+
+-ftree-ccp
+Enable SSA-CCP optimization on trees.
+
+-ftree-ch
+Enable loop header copying on trees.
+
+-ftree-coalesce-vars
+Enable SSA coalescing of user variables.
+
+-ftree-copy-prop
+Enable copy propagation on trees.
+
+-ftree-dce
+Enable SSA dead code elimination optimization on trees.
+
+-ftree-dominator-opts
+Enable dominator optimizations.
+
+-ftree-dse
+Enable dead store elimination.
+
+-ftree-forwprop
+Enable forward propagation on trees.
+
+-ftree-fre
+Enable Full Redundancy Elimination (FRE) on trees.
+
+-ftree-loop-im
+Enable loop invariant motion on trees.
+
+-ftree-loop-ivcanon
+Create canonical induction variables in loops.
+
+-ftree-loop-optimize
+Enable loop optimizations on tree level.
+
+-ftree-phiprop
+Enable hoisting loads from conditional pointers.
+
+-ftree-pta
+Perform function-local points-to analysis on trees.
+
+-ftree-reassoc
+Enable reassociation on tree level.
+
+-ftree-scev-cprop
+Enable copy propagation of scalar-evolution information.
+
+-ftree-sink
+Enable SSA code sinking on trees.
+
+-ftree-slsr
+Perform straight-line strength reduction.
+
+-ftree-sra
+Perform scalar replacement of aggregates.
+
+-ftree-ter
+Replace temporary expressions in the SSA->normal pass.
+
+-funwind-tables
+Just generate unwind tables for exception handling.
+

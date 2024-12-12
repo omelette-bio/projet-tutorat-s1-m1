@@ -1,0 +1,14 @@
+-falign-functions
+Align the start of functions.
+
+-falign-jumps
+Align labels which are only reached by jumping.
+
+-falign-labels
+Align all labels.
+
+-falign-loops
+Align the start of loops.
+
+-fprefetch-loop-arrays
+Generate prefetch instructions, if available, for arrays in loops.
