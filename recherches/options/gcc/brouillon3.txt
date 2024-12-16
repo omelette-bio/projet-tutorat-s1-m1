@@ -1,0 +1,13 @@
+\item[-fgcse-after-reload] Perform global common subexpression elimination after register allocation has finished.
+\item[-fipa-cp-clone] Perform cloning to make Interprocedural constant propagation stronger.
+\item[-floop-interchange] Enable loop interchange on trees.
+\item[-floop-unroll-and-jam] Perform unroll-and-jam on loops.
+\item[-fpeel-loops] Perform loop peeling.
+\item[-fpredictive-commoning] Run predictive commoning optimization.
+\item[-fsplit-loops] Perform loop splitting.
+\item[-fsplit-paths] Split paths leading to loop backedges.
+\item[-ftree-loop-distribution] Enable loop distribution on trees.
+\item[-ftree-partial-pre] In SSA-PRE optimization on trees, enable partial-partial redundancy elimination.
+\item[-funroll-completely-grow-size] This option lacks documentation.
+\item[-funswitch-loops] Perform loop unswitching.
+\item[-fversion-loops-for-strides] Version loops based on whether indices have a stride of one.

@@ -1,0 +1,24 @@
+Annotation2MetadataPass
+ForceFunctionAttrsPass
+InferFunctionAttrsPass
+CoroEarlyPass
+OpenMPOptPass
+IPSCCPPass
+CalledValuePropagationPass
+GlobalOptPass
+AlwaysInlinerPass
+ModuleInlinerWrapperPass
+RequireAnalysisPass<llvm::GlobalsAA, llvm::Module, llvm::AnalysisManager<Module>>
+RequireAnalysisPass<llvm::ProfileSummaryAnalysis, llvm::Module, llvm::AnalysisManager<Module>>
+DeadArgumentEliminationPass
+CoroCleanupPass
+GlobalOptPass
+GlobalDCEPass
+EliminateAvailableExternallyPass
+ReversePostOrderFunctionAttrsPass
+RecomputeGlobalsAAPass
+GlobalDCEPass
+ConstantMergePass
+CGProfilePass
+RelLookupTableConverterPass
+VerifierPass

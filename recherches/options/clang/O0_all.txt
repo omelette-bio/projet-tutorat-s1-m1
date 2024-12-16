@@ -1,0 +1,6 @@
+Running pass: AlwaysInlinerPass on [module]
+Running analysis: InnerAnalysisManagerProxy<FunctionAnalysisManager, Module> on [module]
+Running analysis: ProfileSummaryAnalysis on [module]
+Running pass: CoroConditionalWrapper on [module]
+Running pass: VerifierPass on [module]
+Running analysis: VerifierAnalysis on [module]

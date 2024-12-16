@@ -1,0 +1,46 @@
+\item[-falign-functions] Align the start of functions.
+\item[-falign-jumps] Align labels which are only reached by jumping.
+\item[-falign-labels] Align all labels.
+\item[-falign-loops] Align the start of loops.
+\item[-fcaller-saves] Save registers around function calls.
+\item[-fcode-hoisting] Enable code hoisting.
+\item[-fcrossjumping] Perform cross-jumping optimization.
+\item[-fcse-follow-jumps] When running CSE, follow jumps to their targets.
+\item[-fdevirtualize] Try to convert virtual calls to direct ones.
+\item[-fdevirtualize-speculatively] Perform speculative devirtualization.
+\item[-fexpensive-optimizations] Perform a number of minor, expensive optimizations.
+\item[-fgcse] Perform global common subexpression elimination.
+\item[-fhoist-adjacent-loads] Enable hoisting adjacent loads to encourage generating conditional move instructions.
+\item[-findirect-inlining] Perform indirect inlining.
+\item[-finline-functions] Integrate functions not declared "inline" into their callers when profitable.
+\item[-finline-small-functions] Integrate functions into their callers when code size is known not to grow.
+\item[-fipa-bit-cp] Perform interprocedural bitwise constant propagation.
+\item[-fipa-cp] Perform interprocedural constant propagation.
+\item[-fipa-icf] Perform Identical Code Folding for functions and read-only variables.
+\item[-fipa-icf-functions] Perform Identical Code Folding for functions.
+\item[-fipa-icf-variables] Perform Identical Code Folding for variables.
+\item[-fipa-ra] Use caller save register across calls if possible.
+\item[-fipa-sra] Perform interprocedural reduction of aggregates.
+\item[-fipa-vrp] Perform IPA Value Range Propagation.
+\item[-fisolate-erroneous-paths-dereference] Detect paths that trigger erroneous or undefined behavior due to dereferencing a null pointer. Isolate those paths from the main control flow and turn the statement with
+\item[-flra-remat] Do CFG-sensitive rematerialization in LRA.
+\item[-foptimize-sibling-calls] Optimize sibling and tail recursive calls.
+\item[-foptimize-strlen] Enable string length optimizations on trees.
+\item[-fpartial-inlining] Perform partial inlining.
+\item[-fpeephole2] Enable an RTL peephole pass before sched2.
+\item[-free] Turn on Redundant Extensions Elimination pass.
+\item[-freorder-blocks-and-partition] Reorder basic blocks and partition into hot and cold sections.
+\item[-freorder-functions] Reorder functions to improve code placement.
+\item[-frerun-cse-after-loop] Add a common subexpression elimination pass after loop optimizations.
+\item[-fschedule-insns2] Reschedule instructions after register allocation.
+\item[-fstore-merging] Merge adjacent stores.
+\item[-fstrict-aliasing] Assume strict aliasing rules apply.
+\item[-ftree-loop-distribute-patterns] Enable loop distribution for patterns transformed into a library call.
+\item[-ftree-loop-vectorize] Enable loop vectorization on trees.
+\item[-ftree-pre] Enable SSA-PRE optimization on trees.
+\item[-ftree-slp-vectorize] Enable basic block vectorization (SLP) on trees.
+\item[-ftree-switch-conversion] Perform conversions of switch initializations.
+\item[-ftree-tail-merge] Enable tail merging on trees.
+\item[-ftree-vrp] Perform Value Range Propagation on trees.
+\item[-funroll-loops] Perform loop unrolling when iteration count is known.
+

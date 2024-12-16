@@ -1,0 +1,41 @@
+\item[-fbranch-count-reg] Replace add, compare, branch with branch on count register.
+\item[-fcombine-stack-adjustments] Looks for opportunities to reduce stack adjustments and stack references.
+\item[-fcompare-elim] Perform comparison elimination after register allocation has finished.
+\item[-fcprop-registers] Perform a register copy-propagation optimization pass.
+\item[-fdefer-pop] Defer popping functions args from stack until later.
+\item[-fdse] Use the RTL dead store elimination pass.
+\item[-fforward-propagate] Perform a forward propagation pass on RTL.
+\item[-fguess-branch-probability] Enable guessing of branch probabilities.
+\item[-fif-conversion] Perform conversion of conditional jumps to branchless equivalents.
+\item[-fif-conversion2] Perform conversion of conditional jumps to conditional execution.
+\item[-finline] Enable inlining of function declared "inline", disabling disables all inlining.
+\item[-finline-functions-called-once] Integrate functions only required by their single caller.
+\item[-fipa-modref] Perform interprocedural modref analysis.
+\item[-fipa-profile] Perform interprocedural profile propagation.
+\item[-fipa-pure-const] Discover pure and const functions.
+\item[-fipa-reference] Discover read-only and non addressable static variables.
+\item[-fipa-reference-addressable] Discover read-only, write-only and non-addressable static variables.
+\item[-fmove-loop-invariants] Move loop invariant computations out of loops.
+\item[-fmove-loop-stores] Move stores out of loops.
+\item[-fomit-frame-pointer] When possible do not generate stack frames.
+\item[-freorder-blocks] Reorder basic blocks to improve code placement.
+\item[-fshrink-wrap] Emit function prologues only before parts of the function that need it, rather than at the top of the function.
+\item[-fsplit-wide-types] Split wide types into independent registers.
+\item[-fssa-phiopt] Optimize conditional patterns using SSA PHI nodes.
+\item[-fthread-jumps] Perform jump threading optimizations.
+\item[-ftoplevel-reorder] Reorder top level functions, variables, and asms.
+\item[-ftree-bit-ccp] Enable SSA-BIT-CCP optimization on trees.
+\item[-ftree-builtin-call-dce] Enable conditional dead code elimination for builtin calls.
+\item[-ftree-ccp] Enable SSA-CCP optimization on trees.
+\item[-ftree-ch] Enable loop header copying on trees.
+\item[-ftree-coalesce-vars] Enable SSA coalescing of user variables.
+\item[-ftree-copy-prop] Enable copy propagation on trees.
+\item[-ftree-dce] Enable SSA dead code elimination optimization on trees.
+\item[-ftree-dominator-opts] Enable dominator optimizations.
+\item[-ftree-dse] Enable dead store elimination.
+\item[-ftree-fre] Enable Full Redundancy Elimination (FRE) on trees.
+\item[-ftree-pta] Perform function-local points-to analysis on trees.
+\item[-ftree-sink] Enable SSA code sinking on trees.
+\item[-ftree-slsr] Perform straight-line strength reduction.
+\item[-ftree-sra] Perform scalar replacement of aggregates.
+\item[-ftree-ter] Replace temporary expressions in the SSA->normal pass.

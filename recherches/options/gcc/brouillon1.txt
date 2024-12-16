@@ -1,0 +1,186 @@
+\item[-faggressive-loop-optimizations] Aggressively optimize loops using language constraints.
+
+\item[-fallocation-dce] Tell DCE to remove unused C++ allocations.
+
+\item[-fasynchronous-unwind-tables] Generate unwind tables that are exact at each instruction boundary.
+
+\item[-fauto-inc-dec] Generate auto-inc/dec instructions.
+
+\item[-fbit-tests] Use bit tests for sufficiently large switch statements.
+
+\item[-fbranch-count-reg] Replace add, compare, branch with branch on count register.
+
+\item[-fcombine-stack-adjustments] Looks for opportunities to reduce stack adjustments and stack references.
+
+\item[-fcompare-elim] Perform comparison elimination after register allocation has finished.
+
+\item[-fcprop-registers] Perform a register copy-propagation optimization pass.
+
+\item[-fdce] Use the RTL dead code elimination pass.
+
+\item[-fdefer-pop] Defer popping functions args from stack until later.
+
+\item[-fdse] Use the RTL dead store elimination pass.
+
+\item[-fearly-inlining] Perform early inlining.
+
+\item[-ffold-mem-offsets] Fold instructions calculating memory offsets to the memory access instruction if possible.
+
+\item[-fforward-propagate] Perform a forward propagation pass on RTL.
+
+\item[-ffp-int-builtin-inexact] Allow built-in functions ceil, floor, round, trunc to raise "inexact" exceptions.
+
+\item[-ffunction-cse] Allow function addresses to be held in registers.
+
+\item[-fgcse-lm] Perform enhanced load motion during global common subexpression elimination.
+
+\item[-fguess-branch-probability] Enable guessing of branch probabilities.
+
+\item[-fif-conversion] Perform conversion of conditional jumps to branchless equivalents.
+
+\item[-fif-conversion2] Perform conversion of conditional jumps to conditional execution.
+
+\item[-finline] Enable inlining of function declared "inline", disabling disables all inlining.
+
+\item[-finline-atomics] Inline __atomic operations when a lock free instruction sequence is available.
+
+\item[-finline-functions-called-once] Integrate functions only required by their single caller.
+
+\item[-fipa-modref] Perform interprocedural modref analysis.
+
+\item[-fipa-profile] Perform interprocedural profile propagation.
+
+\item[-fipa-pure-const] Discover pure and const functions.
+
+\item[-fipa-reference] Discover read-only and non addressable static variables.
+
+\item[-fipa-reference-addressable] Discover read-only, write-only and non-addressable static variables.
+
+\item[-fipa-stack-alignment] Reduce stack alignment on call sites if possible.
+
+\item[-fipa-strict-aliasing] Assume strict aliasing rules apply across (uninlined) function boundaries.
+
+\item[-fira-hoist-pressure] Use IRA based register pressure calculation in RTL hoist optimizations.
+
+\item[-fira-share-save-slots] Share slots for saving different hard registers.
+
+\item[-fira-share-spill-slots] Share stack slots for spilled pseudo-registers.
+
+\item[-fivopts] Optimize induction variables on trees.
+
+\item[-fjump-tables] Use jump tables for sufficiently large switch statements.
+
+\item[-flifetime-dse] Tell DSE that the storage for a C++ object is dead when the constructor starts and when the destructor finishes.
+
+\item[-fmath-errno] Set errno after built-in math functions.
+
+\item[-fmove-loop-invariants] Move loop invariant computations out of loops.
+
+\item[-fmove-loop-stores] Move stores out of loops.
+
+\item[-fno-inline-stringops] This option lacks documentation.
+
+\item[-fomit-frame-pointer] When possible do not generate stack frames.
+
+\item[-fpeephole] Enable machine specific peephole optimizations.
+
+\item[-fplt] Use PLT for PIC calls (-fno-plt: load the address from GOT at call site).
+
+\item[-fprintf-return-value] Treat known sprintf return values as constants.
+
+\item[-freg-struct-return] Return small aggregates in registers.
+
+\item[-freorder-blocks] Reorder basic blocks to improve code placement.
+
+\item[-fsched-critical-path-heuristic] Enable the critical path heuristic in the scheduler.
+
+\item[-fsched-dep-count-heuristic] Enable the dependent count heuristic in the scheduler.
+
+\item[-fsched-group-heuristic] Enable the group heuristic in the scheduler.
+
+\item[-fsched-interblock] Enable scheduling across basic blocks.
+
+\item[-fsched-last-insn-heuristic] Enable the last instruction heuristic in the scheduler.
+
+\item[-fsched-rank-heuristic] Enable the rank heuristic in the scheduler.
+
+\item[-fsched-spec] Allow speculative motion of non-loads.
+
+\item[-fsched-spec-insn-heuristic] Enable the speculative instruction heuristic in the scheduler.
+
+\item[-fsched-stalled-insns-dep] Set dependence distance checking in premature scheduling of queued insns.
+
+\item[-fschedule-fusion] Perform a target dependent instruction fusion optimization pass.
+
+\item[-fsemantic-interposition] Allow interposing function (or variables) by ones with different semantics (or initializer) respectively by dynamic linker.
+
+\item[-fshort-enums] Use the narrowest integer type possible for enumeration types.
+
+\item[-fshrink-wrap] Emit function prologues only before parts of the function that need it, rather than at the top of the function.
+
+\item[-fshrink-wrap-separate] Shrink-wrap parts of the prologue and epilogue separately.
+
+\item[-fsigned-zeros] Disable floating point optimizations that ignore the IEEE signedness of zero.
+
+\item[-fsplit-ivs-in-unroller] Split lifetimes of induction variables when loops are unrolled.
+
+\item[-fsplit-wide-types] Split wide types into independent registers.
+
+\item[-fssa-backprop] Enable backward propagation of use properties at the SSA level.
+
+\item[-fssa-phiopt] Optimize conditional patterns using SSA PHI nodes.
+
+\item[-fstdarg-opt] Optimize amount of stdarg registers saved to stack at start of function.
+
+\item[-fthread-jumps] Perform jump threading optimizations.
+
+\item[-ftoplevel-reorder] Reorder top level functions, variables, and asms.
+
+\item[-ftrapping-math] Assume floating-point operations can trap.
+
+\item[-ftree-bit-ccp] Enable SSA-BIT-CCP optimization on trees.
+
+\item[-ftree-builtin-call-dce] Enable conditional dead code elimination for builtin calls.
+
+\item[-ftree-ccp] Enable SSA-CCP optimization on trees.
+
+\item[-ftree-ch] Enable loop header copying on trees.
+
+\item[-ftree-coalesce-vars] Enable SSA coalescing of user variables.
+
+\item[-ftree-copy-prop] Enable copy propagation on trees.
+
+\item[-ftree-dce] Enable SSA dead code elimination optimization on trees.
+
+\item[-ftree-dominator-opts] Enable dominator optimizations.
+
+\item[-ftree-dse] Enable dead store elimination.
+
+\item[-ftree-forwprop] Enable forward propagation on trees.
+
+\item[-ftree-fre] Enable Full Redundancy Elimination (FRE) on trees.
+
+\item[-ftree-loop-im] Enable loop invariant motion on trees.
+
+\item[-ftree-loop-ivcanon] Create canonical induction variables in loops.
+
+\item[-ftree-loop-optimize] Enable loop optimizations on tree level.
+
+\item[-ftree-phiprop] Enable hoisting loads from conditional pointers.
+
+\item[-ftree-pta] Perform function-local points-to analysis on trees.
+
+\item[-ftree-reassoc] Enable reassociation on tree level.
+
+\item[-ftree-scev-cprop] Enable copy propagation of scalar-evolution information.
+
+\item[-ftree-sink] Enable SSA code sinking on trees.
+
+\item[-ftree-slsr] Perform straight-line strength reduction.
+
+\item[-ftree-sra] Perform scalar replacement of aggregates.
+
+\item[-ftree-ter] Replace temporary expressions in the SSA->normal pass.
+
+\item[-funwind-tables] Just generate unwind tables for exception handling.
+
