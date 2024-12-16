@@ -1,3 +1,5 @@
+desactive ces flags
+
 -falign-functions
 Align the start of functions.
 

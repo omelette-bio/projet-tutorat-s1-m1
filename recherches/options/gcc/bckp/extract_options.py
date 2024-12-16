@@ -8,8 +8,8 @@ for i in f1.readlines():
         description = " ".join(line[1:])
         lib[option] = description
 
-f = open("enabled_Os.txt")
-f2 = open("Os_options.txt", 'a+')
+f = open("enabled_O0.txt")
+f2 = open("O0_options.txt", 'a+')
 for i in f.readlines():
     f2.write(i.split()[0])
     f2.write("\n")
