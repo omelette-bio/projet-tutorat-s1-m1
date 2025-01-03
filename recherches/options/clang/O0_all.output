@@ -1,0 +1,5 @@
+AlwaysInlinerPass -> inline fonctions marquees always_inline
+CoroConditionalWrapper -> un truc avec les coroutines
+VerifierPass -> verifie que la representation intermediaire de llvm soit correcte
+
+-> pas grand chose

@@ -1,0 +1,2 @@
+diff -wy --suppress-common-lines    <(echo 'int;' | clang -xc     - -o /dev/null -\#\#\# 2>&1 | tr " " "\n" | grep -v /tmp)   <(echo 'int;' | clang -xc -O0 - -o /dev/null -\#\#\# 2>&1 | tr " " "\n" | grep -v /tmp)
+(llvm-as < /dev/null | opt -O3 -disable-output -debug-pass-manager) 2> O3_all.txt

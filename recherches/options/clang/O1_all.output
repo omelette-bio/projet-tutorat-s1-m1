@@ -6,10 +6,9 @@ OpenMPOptPass
 IPSCCPPass
 CalledValuePropagationPass
 GlobalOptPass
-AlwaysInlinerPass
 ModuleInlinerWrapperPass
-RequireAnalysisPass<llvm::GlobalsAA, llvm::Module, llvm::AnalysisManager<Module>>
-RequireAnalysisPass<llvm::ProfileSummaryAnalysis, llvm::Module, llvm::AnalysisManager<Module>>
+RequireAnalysisPass<llvm::GlobalsAA,
+RequireAnalysisPass<llvm::ProfileSummaryAnalysis,
 DeadArgumentEliminationPass
 CoroCleanupPass
 GlobalOptPass
@@ -21,4 +20,3 @@ GlobalDCEPass
 ConstantMergePass
 CGProfilePass
 RelLookupTableConverterPass
-VerifierPass

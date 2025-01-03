@@ -1,5 +1,9 @@
-f = open("O0_all.txt")
-f2 = open("O0_passes.txt", "+a")
+import sys
+
+input_file = sys.argv[1]
+f = open(input_file)
+output_file = input_file + ".output"
+f2 = open(output_file, "+a")
 lines = f.readlines()
 for i in range(0, len(lines)):
     words = lines[i].split()
