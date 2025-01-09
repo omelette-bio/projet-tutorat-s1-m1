@@ -1,0 +1,50 @@
+clang++ :
+    unlink_chunk : 30.92%
+    generate_large_graph : 19.52%
+    malloc_consolidate : 19.16%
+    cfree : 11.98%
+    dijkstra : 8.96% : 13.17s
+    
+    temps total : 13.17*100/8.96 = 146.98s
+
+g++ : 
+    unlink_chunk : 25.92%
+    dijkstra : 19.27% : 26.28s
+    generate_large_graph : 17.55%
+    malloc_consolidate : 16.54%
+    cfree : 11.35%
+    
+    temps total : 26.28*100/19.27 = 136.37s
+
+icpx : 
+    dijkstra : 11.14% : 17.34s
+    
+    temps total : 17.34*100/11.14 = 155.65s
+    
+A retenir : g++ temps de calcul dijkstra plus lent, mais temps total plus rapide
+80% du temps dans l'initialisation et la liberation memoire pour g++
+90% du temps dans l'initialisation et la liberation memoire pour clang++
+
+conclusion : icx/clang meilleurs pour du c++, car ils ont une meilleure optimisation et comprehension du systeme de typage de C++
+
+
+what we can notice from these 2 graphs, is how differently gcc compares with clang and icx according to the language used, C or C++, when using C, gcc produces way more optimized codes than clang and icx, whereas in C++, gcc is the least performant one. Few experiments were done get some answers to why is it like this. So first, the experiments were made on the C++ programs, at the compilation level of O3, this will give us some data to work with, and, by using the command perf record and perf report, we can get a lot of data on the percentage of time used by a function, and the results were the following:
+gcc: 
+    total: 136.37 seconds
+    dijkstra: 20%
+    initialisation/free: 80%
+
+clang:
+    total: 146.98 seconds
+    dijkstra: 9%
+    init/free: 91%
+
+icpx:
+    total: 155.65 seconds
+    dijkstra: 11%
+    init/free: 89%
+
+what we can get as results from here is that gcc is the most optimized in terms of initialisation and memory management, but is the worst one in terms of pure dijkstra calculation. If we push further the analysis, we can see there are some points in the program where types inference were used, such as for (auto edge : temp_neighbors). g++ might not be able to manage this type system as well as clang or icx, hence the lack of optimizations
+
+
+that for gcc, around 20% of the execution time was in the dijkstra algorithm, and 80% of his time in the initialisation/free

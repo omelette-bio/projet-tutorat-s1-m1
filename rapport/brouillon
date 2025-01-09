@@ -1,0 +1,6 @@
+dans l'introduction, decrire les differents niveaux d'optimisation
+
+Discussion
+the tutorship project "Optimizing Application Performance through Compilation Optimization" gave us more insights about optimizations in compilers, by comparing them in concrete situations, with programs frequently used in every day life. 
+what could be obtained from this is that gcc is still the superior one, even with all the competition, however, we could see that in c++ intensive situations such as dijkstra, clang was way superior, because of its comprehension of the c++ type system. 
+the study of the optimizations operated by compilers allowed us to have a better understanding of the comparisons between the compilers

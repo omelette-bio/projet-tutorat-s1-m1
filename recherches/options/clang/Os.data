@@ -1,0 +1,12 @@
+AggressiveInstCombinePass
+ConstraintEliminationPass
+CorrelatedValuePropagationPass
+DSEPass
+GVNPass
+JumpThreadingPass
+LibCallsShrinkWrapPass
+MergedLoadStoreMotionPass
+MoveAutoInitPass
+SLPVectorizerPass
+SpeculativeExecutionPass
+VerifierPass

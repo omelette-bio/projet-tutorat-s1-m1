@@ -5,9 +5,9 @@ programs=("dijkstra")
 
 compilers=("gcc" "icx" "clang" "ccomp")
 optimizations=("-O0" "-O1" "-O2" "-O3" "-Os")
-compilerspp=("g++" "icpx" "clang++")
+compilerspp=("g++")
 
-cd ../bin
+cd bin
 
 echo "compilation, optimisation, temps" >> ../time_data.csv
 for prog in "${programs[@]}";
@@ -21,7 +21,7 @@ do
             do
                 echo "executing $prog-$comp$opt"
                 exec_time=$(./$prog-$comp$opt 2> /dev/null)
-                echo "$comp, $opt, $exec_time" >> ../time_datas/time_data.csv
+                echo "$comp, $opt, $exec_time" >> ../time_data.csv
             done;
         done
     done

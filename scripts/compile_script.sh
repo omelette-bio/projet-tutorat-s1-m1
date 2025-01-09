@@ -10,7 +10,7 @@ for comp in "${compilers[@]}";
 do
    for opt in "${optimizations[@]}";
    do
-       $comp $opt ../src/matrix_multiply.c -D M=2000 -D P=2000 -D N=2000 -o ../bin/matrix-multiply-$comp$opt
+       $comp $opt ../src/matrix_multiply.c -D M=2000 -D P=2000 -D N=2000 -o bin/matrix-multiply-$comp$opt
    done
 done
 
@@ -18,6 +18,6 @@ for comp in "${compilerspp[@]}";
 do
    for opt in "${optimizations[@]}";
    do
-     $comp $opt ../src/dijkstra.cpp -o ../bin/dijkstra-$comp$opt
+     $comp $opt ../src/dijkstra.cpp -o bin/dijkstra-$comp$opt
    done
 done
