@@ -1,35 +1,15 @@
-\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
-\contentsline {part}{I\hspace {1em}The experience}{3}{part.1}%
-\contentsline {section}{\numberline {2}Method of experiment}{4}{section.2}%
-\contentsline {section}{\numberline {3}Results}{4}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Matrix Multiplication Results}{4}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Dijkstra Results}{5}{subsection.3.2}%
-\contentsline {part}{II\hspace {1em}Compilers}{7}{part.2}%
-\contentsline {section}{\numberline {4}\texttt {gcc} }{7}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Optimization options}{7}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Method of obtention}{7}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Options introduced by \texttt {-O0} }{7}{subsubsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.3}Options introduced by \texttt {-O1} }{7}{subsubsection.4.1.3}%
-\contentsline {subsubsection}{\numberline {4.1.4}Options introduced by \texttt {-O2} }{8}{subsubsection.4.1.4}%
-\contentsline {subsubsection}{\numberline {4.1.5}Options introduced by \texttt {-O3} }{8}{subsubsection.4.1.5}%
-\contentsline {subsubsection}{\numberline {4.1.6}Options enabled by \texttt {-Os} }{9}{subsubsection.4.1.6}%
-\contentsline {section}{\numberline {5}\texttt {icx} }{9}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Optimization options}{9}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}Method of obtention}{9}{subsubsection.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.1.2}Options introduced by \texttt {-O0} }{9}{subsubsection.5.1.2}%
-\contentsline {subsubsection}{\numberline {5.1.3}Options introduced by \texttt {-O1} }{9}{subsubsection.5.1.3}%
-\contentsline {subsubsection}{\numberline {5.1.4}Options introduced by \texttt {-O2} }{9}{subsubsection.5.1.4}%
-\contentsline {subsubsection}{\numberline {5.1.5}Options introduced by \texttt {-O3} }{10}{subsubsection.5.1.5}%
-\contentsline {section}{\numberline {6}\texttt {ccomp} }{10}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Optimization options}{10}{subsection.6.1}%
-\contentsline {subsubsection}{\numberline {6.1.1}Method of obtention}{10}{subsubsection.6.1.1}%
-\contentsline {subsubsection}{\numberline {6.1.2}Options introduced by \texttt {-O0} }{10}{subsubsection.6.1.2}%
-\contentsline {subsubsection}{\numberline {6.1.3}Options introduced by \texttt {-O1} ,\texttt {-O2} ,\texttt {-O3} }{10}{subsubsection.6.1.3}%
-\contentsline {subsubsection}{\numberline {6.1.4}Options introduced by \texttt {-Os} }{11}{subsubsection.6.1.4}%
-\contentsline {section}{\numberline {7}\texttt {clang} }{11}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Optimization options}{11}{subsection.7.1}%
-\contentsline {subsubsection}{\numberline {7.1.1}Method of obtention}{11}{subsubsection.7.1.1}%
-\contentsline {subsubsection}{\numberline {7.1.2}Options enabled at \texttt {-O0} }{12}{subsubsection.7.1.2}%
-\contentsline {subsubsection}{\numberline {7.1.3}Options introduced by \texttt {-O1} }{12}{subsubsection.7.1.3}%
-\contentsline {subsubsection}{\numberline {7.1.4}Options introduced by \texttt {-O2} , \texttt {-O3} , \texttt {-Os} }{13}{subsubsection.7.1.4}%
-\contentsline {section}{\numberline {8}Conclusion}{13}{section.8}%
+\contentsline {section}{\numberline {1}Summary}{2}{section.1}%
+\contentsline {section}{\numberline {2}Introduction}{3}{section.2}%
+\contentsline {section}{\numberline {3}State of the Art}{3}{section.3}%
+\contentsline {part}{I\hspace {1em}The experience}{4}{part.1}%
+\contentsline {section}{\numberline {4}Experience's environnement}{4}{section.4}%
+\contentsline {section}{\numberline {5}Experiment method}{5}{section.5}%
+\contentsline {section}{\numberline {6}Results}{5}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Matrix Multiplication Results}{5}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Dijkstra Results}{6}{subsection.6.2}%
+\contentsline {part}{II\hspace {1em}Compilers}{8}{part.2}%
+\contentsline {section}{\numberline {7}\texttt {gcc} }{8}{section.7}%
+\contentsline {section}{\numberline {8}\texttt {icx} }{10}{section.8}%
+\contentsline {section}{\numberline {9}\texttt {ccomp} }{11}{section.9}%
+\contentsline {section}{\numberline {10}\texttt {clang} }{12}{section.10}%
+\contentsline {section}{\numberline {11}Conclusion}{14}{section.11}%

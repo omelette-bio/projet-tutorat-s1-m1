@@ -77,6 +77,18 @@ breaklines=true,                % Line wrapping
 \tableofcontents
 
 \clearpage
+\section{Summary}
+This report investigates the impact of compiler optimizations on application performance by comparing four compilers—\gcc, \clang, \icx, and \comp—across multiple optimization levels: 
+\optizero, \optione, \optitwo, \optithree, and \optisize. 
+\newline
+Two programs, a matrix multiplication in \texttt{C} and Dijkstra’s algorithm in \texttt{C++}, were used to evaluate execution 
+times, highlighting how different compilers handle computationally intensive tasks and memory-heavy workloads. 
+\newline
+The analysis shows that \gcc consistently outperforms others in \texttt{C}
+tasks due to its robust optimization capabilities, while \clang excels in \texttt{C++} scenarios, leveraging its deeper understanding of modern constructs. \newline
+\icx and \comp, though less performant, are designed for specific use cases like hardware-specific tuning and formally verified code, respectively. The findings emphasize the importance 
+of choosing the right compiler for specific tasks and suggest directions for further research, including energy-efficient optimizations and real-world mixed-language applications.
+\clearpage
 \section{Introduction}
 The tutoring project titled "Optimizing Application Performance through Compilation Optimization" explores how compilers improve the generated code 
 using various optimization levels: \optizero, \optione, \optitwo, \optithree, and \optisize. \newline
@@ -90,11 +102,26 @@ This project is divided into two main phases:
 \end{itemize}
 These steps allow for the evaluation of compilers not only in terms of speed but also by identifying the specific characteristics of each optimization level.
 
+
+\section{State of the Art}
+Compiler optimizations play a crucial role in improving program performance by transforming source code into highly efficient machine code. Modern compilers like \gcc, \clang, and \icx 
+employ a range of techniques to optimize loops, eliminate redundant computations, and streamline memory usage. For example, \gcc’s loop unrolling and vectorization strategies enable 
+significant performance gains in computationally intensive workloads, while \clang’s adherence to modern \texttt{C++} standards gives it an edge in handling advanced type systems and 
+constructs.
+\newline\newline
+Despite their capabilities, these compilers face trade-offs. \gcc is known for its aggressive optimizations but may struggle with \texttt{C++}-specific features. \clang prioritizes 
+modularity and diagnostics, making it a preferred choice for developers working on complex \texttt{C++} codebases. \icx, designed for Intel architectures, excels in leveraging 
+hardware-specific features but shows weaker performance in general-purpose workloads. Meanwhile, \comp stands apart as a formally verified compiler, prioritizing correctness over speed, 
+making it indispensable for safety-critical applications.
+\newline\newline
+Recent advancements in compiler technology focus on expanding interprocedural analysis, incorporating energy efficiency into optimization strategies, and enhancing debugging tools. 
+However, challenges remain, such as balancing compile-time performance with runtime efficiency, ensuring cross-platform consistency, and addressing the growing demand for 
+energy-efficient computing. These limitations underline the need for further research into compiler optimization techniques tailored for modern hardware and software ecosystems.
 \clearpage
 
 \part{The experience}
 
-\section*{Experience's environnement}
+\section{Experience's environnement}
 In this part will be presented the environnement of the experimentations, on which hardware it was done, on which software, etc.
 \subsection*{Hardware}
 In this part, the hardware part of the computer will be explored. \newline
@@ -140,7 +167,7 @@ Here is a description of all the software elements used in this benchmark :
     \item[ccomp] version 3.14
 \end{description}
 
-\section{Method of experiment}
+\section{Experiment method}
 To compare the performance of the different compilers, two programs will be used, the first \texttt{matrix\_multiply}, is a \texttt{C} program 
 that multiplies two matrices to put the result in a third matrix, it is an interesting challenge for optimization because of the presence of 3 nested loops for 
 the calculation. This program will be compiled using \gcc, \clang, \icx and \comp. \newline
@@ -207,21 +234,24 @@ If we push further the analysis, we can see there are some points in the program
 In this part will be presented all the compilers used in this tutorship project, as well as deepening their optimization options for each optimizations levels.
 \newline
 The optimizations presented are not exhaustive, only the most important optimizations will be presented, and the method to obtain the optimizations will be given
-for each compiler, so the informations can be obtained.
+for each compiler, so the experiments can be reproduced.
+
+
+
+
 \section{\gcc}
 \gcc is the most popular \texttt{C} compiler, it comes in the \texttt{GNU Compiler Collection}, which includes compilers for \texttt{Fortran}, \texttt{C++}, \texttt{Go}...
-\subsection{Optimization options}
-\subsubsection{Method of obtention}
+
+\subsection*{Optimizations Obtention Method}
 \gcc is really helpful regarding getting informations about what he does, because the compiler has an option for this sole purpose, which is
 \begin{verbatim}
 gcc --help=optimizers -Q -On
 \end{verbatim}
 
-\subsubsection{Options introduced by \optizero}
+\subsection*{Optimizations introduced by \optizero}
 \gcc \optizero was originally meant to disable every optimization flags to give the least optimized code, however, the competition with other compilers led to 
-now have some optimization flags enabled, 53 to be more precise. Not all optimizations will be presented, because the "optimizations" are for the most, analysis
-options.
-\newline
+now have some optimization flags enabled, 53 to be more precise. For the most, optimizations at this level are analysis options.
+\newline\newline
 A part of the optimizations concerns loop optimizations, with the option \newline \texttt{-faggressive-loop-optimizations}, \gcc enables, as its name suggests, a lot of loop optimizations, 
 such as \textbf{loop fusion} and \textbf{fission}, \textbf{loop unrolling}, \textbf{loop peeling}. \newline
 Next is the dead code elimination, \gcc can also remove every line of code that isn't used, this doesn't impact the execution speed, but reduces the size of the generated code.\newline
@@ -229,7 +259,7 @@ And finally are the peephole optimizations this option introduces optimizations 
 \newline
 Other enabled options at \optizero are either analysis options or add error-handling instructions.
 
-\subsubsection{Options introduced by \optione}
+\subsection*{Optimizations introduced by \optione}
 \textbf{Intermediate Tree Optimizations} \newline
 \gcc \optione optimizations add optimizations to the tree that the compiler builds in the intermediate level.
 \newline
@@ -248,7 +278,7 @@ enable even further optimizations. An example of this would be a variable of the
 \newline\newline
 At \optione, there are also other options to enable inlining of functions, that means that a function call will be replaced by the function's body, which allows for further optimizations.
 
-\subsubsection{Options introduced by \optitwo}
+\subsection*{Optimizations introduced by \optitwo}
 \textbf{Interprocedural Analysis Optimizations} \newline
 \gcc \optitwo introduces \texttt{IPA} (Interprocedural Analysis) optimizations, which aim to improve performance by analyzing and optimizing across function boundaries. 
 This includes \texttt{-fipa-icf} (Identical Code Folding), which detects and merges functions or read-only variables with identical implementations, reducing code size and memory usage. 
@@ -263,8 +293,7 @@ cache misses. Also, aligning labels and jumps allows to decrease branch predicti
 \newline\newline
 \optitwo also enables \texttt{-funroll-loops}, which performs loop unrolling when iteration count is known, which allows the compiler to optimize as it wishes.
 
-
-\subsubsection{Options introduced by \optithree}
+\subsection*{Optimizations introduced by \optithree}
 \textbf{Loop Optimizations} \newline
 \gcc \optithree enables mostly further loops optimizations, such as \texttt{loop peeling}, which removes special cases in the loop and put them outside of the 
 loop, then, \texttt{loop jamming} combines two loops with the same scope/range into a single one, enabling more optimizations, and is generally combined with \texttt{loop unrolling}.
@@ -277,8 +306,7 @@ Finally, \texttt{loop splitting} allows simplification of a loop
 by dividing it into several loops, it simplifies the loops with the pattern \texttt{for (int $i=0$; $i<10$; $i++$) if($i<5$)... else...} into two loops, one with the range 0..4 and 
 the other 5..9. It helps in reducing dependencies.
 
-
-\subsubsection{Options enabled by \optisize}
+\subsection*{Optimizations enabled by \optisize}
 \gcc \optisize enables the same options as \gcc \optitwo, but removes the aligning optimizations to free some space.
 
 
@@ -288,12 +316,11 @@ the other 5..9. It helps in reducing dependencies.
 
 \section{\icx}
 It's Intel's compiler for their x86 architecture, it is made to deliver extremely optimized programs on their processor architecture.
-\subsection{Optimization options}
-\subsubsection{Method of obtention}
+\subsection*{Optimization Obtention Method}
 Everything is available in the online documentation, it's relatively easy to find what we need.
-\subsubsection{Options introduced by \optizero}
+\subsection*{Optimizations introduced by \optizero}
 Everything is disabled at \optizero.
-\subsubsection{Options introduced by \optione}
+\subsection*{Optimizations introduced by \optione}
 At this level of optimization, \icx starts by introducing \textbf{data flow analysis}, to help gathering data about data flows throughout the whole program, 
 allowing for optimizations.\newline
 Then, the compiler can also reorganize code as he wishes with \textbf{code motion}, which allows to move non-changing result operations out of loop to avoid 
@@ -307,7 +334,7 @@ Other optimizations are also enabled, \textbf{strength reduction}, that changes 
 \end{verbatim}
 And, finally, \textbf{split-lifetime analysis}, can split the \textit{lifetime} of a variable into smaller lifetimes, to reallocate the registers when the variable is not used anymore.
 
-\subsubsection{Options introduced by \optitwo}
+\subsection*{Optimizations introduced by \optitwo}
 At this level of optimization, \icx introduces more optimizations, like \textbf{constant propagation}, or \textbf{forward substitution}, which can replace variable with their expressions, for example : 
 \begin{verbatim}
     int a = 5 + i
@@ -322,7 +349,7 @@ Additionnal optimizations are introduced, like \textbf{loop unrolling}, which re
 \newline\newline
 There are also code-removing optimizations such as \textbf{dead-code elimination}, \textbf{dead-store elimination}, and \textbf{dead static function elimination} which does not really improves performance but can help reduce the weight put on the CPU.
 
-\subsubsection{Options introduced by \optithree}
+\subsection*{Optimizations introduced by \optithree}
 It enables all the same optimizations as \optitwo but add more aggressive loop transformations such as \textbf{loop fusion}, \textbf{block-unroll-and-jam}, with these two options, the compiler expands and find the best fusions/jams in the loops and \textbf{collapsing-IF-statements}, where multiple successive if are combined into one to reduce branching therefore gaining performances.
 
 
@@ -346,14 +373,12 @@ It enables all the same optimizations as \optitwo but add more aggressive loop t
 It's the only C compiler that is formally verified to produce a code described by the source code, optimized or not. By its formally verified nature, it is 
 the one that produces the most inefficient code. It is generally used for safety critical programs where a bug introduced by compilation could lead to serious 
 problems.
-%In this part will be presented all the optimizations options that \comp enable at each optimization level, the only difference is that with this compiler, \optione, \optitwo and \optithree are all the same option, they enable the same optimizations. Moreover, \optizero enables nothing.
 
-\subsection{Optimization options}
-\subsubsection{Method of obtention}
+\subsection*{Optimization Obtention Method}
 Everything is available in the online documentation, it's relatively easy to find what we need.
-\subsubsection{Options introduced by \optizero}
+\subsection*{Optimizations introduced by \optizero}
 \comp doesn't enable anything at \optizero, and the main optimization level \texttt{-O} gives the same optimizations as \optione, \optitwo, \optithree, because they are just an alias of that optimization option.
-\subsubsection{Options introduced by \optione,\optitwo,\optithree}
+\subsection*{Optimizations introduced by \optione,\optitwo,\optithree}
 There are not a lot of options so here is a list of them
 
 \begin{description}
@@ -368,15 +393,15 @@ There are not a lot of options so here is a list of them
     \item[-ffloat-const-prop 2] enables full propagation of floating-point constants, ensuring arithmetic is performed in IEEE double precision format with round-to-nearest mode.
 \end{description}
 
-\subsubsection{Options introduced by \optisize}
+\subsection*{Optimizations introduced by \optisize}
 The documentation doesn't give a lot of informations about it. Just the usual "optimizes for code size".
 
 \section{\clang}
 It's a compiler made by the LLVM Developer Group, it can replace \gcc by supporting most of the option flags of \gcc. \newline
 The objective behind this compiler is to create a compiler that allowed: first, better diagnostics, which allows to debug more easily, second, to be seperated from the GNU licence, which forced
 softwares to be integrated to said licence and therefore having to open\-source proprietary software, third, to have a nimble compiler that is simple and easy to develop and maintain.
-\subsection{Optimization options}
-\subsubsection{Method of obtention}
+
+\subsection*{Optimization Obtention Method}
 \clang's documentation does not explicitly specify all enabled optimizations, however, it has some commands that can give what is enabled with each 
 optimization level, there are 2 commands because of the way clang works. \newline
 The compiler is divided in two parts, \clang, the part where the intermediate representation (IR) is made, and \texttt{opt}, the part that optimizes said IR. 
@@ -396,13 +421,13 @@ clang -O2 -emit-llvm -S matrix_multiply.c -o mat_mult.ll
 opt -O2 -debug-pass-manager mat_mult.ll -o mat_mult.ll
 \end{verbatim}
 
-\subsubsection{Options enabled at \optizero}
+\subsection*{Optimizations enabled at \optizero}
 \clang like the other compilers doesn't enable a lot of optimizations, the optimizations are called \textbf{AlwaysInlinerPass}, which inlines functions marked
 with the \texttt{always\_inline} attribute, \textbf{CoroConditionalWrapper}, which is related to coroutines support in C++, which is a function that can be 
 paused and resumed, enabling asynchronous and cooperative task management. Finally, \textbf{VerifierPass} ensures that the LLVM Intermediate Representation 
 generated by the compiler is correct and coherent with the original program.
 
-\subsubsection{Options introduced by \optione}
+\subsection*{Optimizations introduced by \optione}
 \textbf{Loop Optimizations} \newline
 At \optione, \clang introduces several important loop optimizations to enhance runtime performance. The \textbf{LoopSimplifyPass} ensures that loops are structured 
 in a canonical form, making them easier to analyze and optimize in subsequent passes. \textbf{LCSSAPass} (Loop-Closed SSA) further prepares loops by transforming 
@@ -427,7 +452,7 @@ Additionally, \textbf{DeadArgumentEliminationPass} simplifies function signature
 by replacing them with more efficient alternatives where possible. Together, these optimizations strike a balance between improving runtime performance and maintaining fast compilation 
 speeds, providing a strong baseline for further enhancements at higher optimization levels.
 
-\subsubsection{Options introduced by \optitwo, \optithree, \optisize}
+\subsection*{Optimizations introduced by \optitwo, \optithree, \optisize}
 At \optitwo, \optithree, and \optisize, \clang focuses on impactful optimizations like \textbf{GVNPass} (Global Value Numbering), which eliminates redundant 
 computations, and \textbf{DSEPass} (Dead Store Elimination), which removes unnecessary memory writes. \newline
 \textbf{SLPVectorizerPass} enhances performance by vectorizing 
