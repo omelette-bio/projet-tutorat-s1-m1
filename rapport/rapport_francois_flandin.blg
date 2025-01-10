@@ -7,45 +7,50 @@ Warning--entry type for "icx_doc" isn't style-file defined
 --line 1 of file bibliox.bib
 Warning--entry type for "ccomp_doc" isn't style-file defined
 --line 9 of file bibliox.bib
-You've used 2 entries,
+Warning--entry type for "clang_doc" isn't style-file defined
+--line 17 of file bibliox.bib
+Warning--entry type for "clang_opti" isn't style-file defined
+--line 25 of file bibliox.bib
+Warning--to sort, need author or key in clang_opti
+You've used 4 entries,
             2773 wiz_defined-function locations,
-            601 strings with 5214 characters,
-and the built_in function-call counts, 627 in all, are:
-= -- 52
-> -- 20
-< -- 2
-+ -- 8
-- -- 6
-* -- 32
-:= -- 100
-add.period$ -- 6
-call.type$ -- 2
-change.case$ -- 8
-chr.to.int$ -- 2
-cite$ -- 4
-duplicate$ -- 30
-empty$ -- 65
-format.name$ -- 8
-if$ -- 129
+            609 strings with 5423 characters,
+and the built_in function-call counts, 1165 in all, are:
+= -- 102
+> -- 30
+< -- 3
++ -- 13
+- -- 9
+* -- 63
+:= -- 165
+add.period$ -- 11
+call.type$ -- 4
+change.case$ -- 15
+chr.to.int$ -- 4
+cite$ -- 10
+duplicate$ -- 60
+empty$ -- 132
+format.name$ -- 12
+if$ -- 253
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 0
-newline$ -- 18
-num.names$ -- 8
-pop$ -- 24
+newline$ -- 27
+num.names$ -- 12
+pop$ -- 49
 preamble$ -- 1
-purify$ -- 6
+purify$ -- 11
 quote$ -- 0
-skip$ -- 29
+skip$ -- 57
 stack$ -- 0
-substring$ -- 4
-swap$ -- 2
+substring$ -- 9
+swap$ -- 4
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 22
-warning$ -- 0
-while$ -- 6
+type$ -- 44
+warning$ -- 1
+while$ -- 9
 width$ -- 0
-write$ -- 31
-(There were 2 warnings)
+write$ -- 53
+(There were 5 warnings)
