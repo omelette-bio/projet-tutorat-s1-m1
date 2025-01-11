@@ -1,14 +1,9 @@
-\begin{thebibliography}{4}
+\begin{thebibliography}{3}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
-
-\bibitem[cla(2013)]{clang_opti}
-Stack overflow question about clang optimization levels, 2013.
-\newblock URL
-  \url{https://stackoverflow.com/questions/15548023/clang-optimization-levels}.
 
 \bibitem[Group(2024)]{clang_doc}
 LLVM Group.

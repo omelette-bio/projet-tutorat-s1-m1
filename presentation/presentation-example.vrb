@@ -1,0 +1,14 @@
+\frametitle{Exemple progressbar au pied}
+\begin{center}
+      \verb;\usetheme[progressbar = foot]{MasterII};
+    \end{center}
+
+    \begin{block}{block}
+      Block
+    \end{block}
+    \begin{alertblock}{alertblock}
+      Block
+    \end{alertblock}
+    \begin{exampleblock}{exampleblock}
+      Block
+    \end{exampleblock}

@@ -1,0 +1,65 @@
+
+\usepackage{natbib}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remarque}
+
+%%%%%%%%%%%%%%%%%%%%%
+%   Blocs personnalisés   
+%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{remarque}{\begin{alertblock}{Remarque}}{\end{alertblock}}
+\newenvironment{essai}{\begin{exampleblock}{Essai}}{\end{exampleblock}}
+
+\newenvironment{attention}[1]{\begin{block}{#1}}{\end{block}}
+\BeforeBeginEnvironment{attention}{
+  \setbeamercolor{block title}{bg=mauve}
+}
+\AfterEndEnvironment{attention}{
+  \setbeamercolor{block title}{bg=bleu}
+}
+
+%%%%%%%%%%%%%%%%%%%%%
+%   Listings
+%%%%%%%%%%%%%%%%%%%%%
+\usepackage{listings}
+\usepackage{lstautogobble}
+\newenvironment{slide}{\begin{frame}[fragile,environment=slide]}{\end{frame}}
+
+\lstdefinestyle{myStyle}{
+  basicstyle=\ttfamily\small,
+  inputencoding=utf8,
+  extendedchars=true,
+  upquote=true,
+  showstringspaces=false,
+  columns=fullflexible,
+  autogobble=true,
+  mathescape=true, 
+  literate=%
+  {ë}{{\"e}}{1}%
+  {é}{{\'e}}{1}%
+  {è}{{\`e}}{1}%
+  {à}{{\`a}}{1}%
+  {ç}{{\c{c}}}{1}%
+  {œ}{{\oe}}{1}%
+  {ù}{{\`u}}{1}%
+  {É}{{\'E}}{1}%
+  {È}{{\`E}}{1}%
+  {À}{{\`A}}{1}%
+  {Ç}{{\c{C}}}{1}%
+  {Œ}{{\OE}}{1}%
+  {Ê}{{\^E}}{1}%
+  {ê}{{\^e}}{1}%
+  {î}{{\^i}}{1}%
+  {ô}{{\^o}}{1}%
+  {û}{{\^u}}{1}%
+  {â}{{\^a}}{1}%
+  {Â}{{\^A}}{1}%
+  {Î}{{\^I}}{1}%
+  {ü}{{\"u}}{1}%
+  {ő}{{\H{o}}}{1}%
+}
+
+\lstnewenvironment{code}
+  {\lstset{style=myStyle}}
+  {\vspace{-1ex}}
+  

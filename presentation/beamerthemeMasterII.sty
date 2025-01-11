@@ -1,0 +1,423 @@
+
+%%%%%%%%%%%%%%%%%%%%%
+%   Theme Options   
+%%%%%%%%%%%%%%%%%%%%%
+\ProvidesPackage{beamerthemeMasterII}
+
+\mode<presentation>
+
+\newif\if@dosectionpages
+\@dosectionpagesfalse
+
+\DeclareOptionBeamer{mode}{\def\beamer@theme@mode{#1}}
+\ExecuteOptionsBeamer{mode=light} % Default light mode
+\DeclareOptionBeamer{color}{\def\beamer@theme@color{#1}}
+\ExecuteOptionsBeamer{color=bright} % Default bright colors
+\DeclareOptionBeamer{numbering}{\def\beamer@theme@numbering{#1}}
+\ExecuteOptionsBeamer{numbering=fraction} % Default fraction numbering
+\DeclareOptionBeamer{progressbar}{\def\beamer@theme@progressbar{#1}}
+\ExecuteOptionsBeamer{progressbar=frametitle} % Default fraction numbering
+\ProcessOptionsBeamer
+
+\def\beamer@theme@darkmode{dark}%
+\def\beamer@theme@lightmode{light}%
+\def\beamer@theme@brightcolor{bright}%
+\def\beamer@theme@palecolor{pale}%
+\def\beamer@theme@fractionnumbering{fraction}%
+\def\beamer@theme@numbernumbering{number}%
+\def\beamer@theme@nonenumbering{none}%
+\def\beamer@theme@frametitleprogressbar{frametitle}%
+\def\beamer@theme@footprogressbar{foot}%
+\def\beamer@theme@noneprogressbar{none}%
+
+%%%%%%%%%%%%%%%%%%%%%
+%   Required Packages   
+%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{tikz}
+\RequirePackage{graphicx}
+\RequirePackage{calc}
+\RequirePackage[french]{babel} % Change to english if you wish to have a presentation in english
+
+%%%%%%%%%%%%%%%%%%%%%
+%   Navigation Style   
+%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{navigation symbols}{} 
+
+
+%%%%%%%%%%%%%%%%%%%%%
+%   Fonts   
+%%%%%%%%%%%%%%%%%%%%%
+\setbeamerfont{title}{size=\Large, series=\bfseries}
+\setbeamerfont{author}{size=\small}
+\setbeamerfont{date}{size=\small}
+\setbeamerfont{supervisor}{size=\footnotesize}
+\setbeamerfont{institute}{size=\footnotesize}
+\setbeamerfont{section title}{size=\Large, series=\bfseries}
+\setbeamerfont{block title}{size=\normalsize}
+\setbeamerfont{block title alerted}{size=\normalsize}
+\setbeamerfont*{subtitle}{size=\large}
+\setbeamerfont{frametitle}{size=\large}
+\setbeamerfont{caption}{size=\small}
+\setbeamerfont{caption name}{series=\bfseries}
+\setbeamerfont{description item}{series=\bfseries}
+\setbeamerfont{page number in head/foot}{size=\scriptsize}
+\setbeamerfont{bibliography entry author}{size=\normalsize, series=\normalfont}
+\setbeamerfont{bibliography entry title}{size=\normalsize, series=\bfseries}
+\setbeamerfont{bibliography entry location}{size=\normalsize, series=\normalfont}
+\setbeamerfont{bibliography entry note}{size=\small, series=\normalfont}
+\setbeamerfont{standout}{size=\Large, series=\bfseries}
+
+%%%%%%%%%%%%%%%%%%%%%
+%   Color Theme   
+%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{masterColors}
+
+\def\brightcolors{
+  \setbeamercolor*{title}{fg=bleu}
+  \setbeamercolor*{standout}{fg=bleu}
+  
+  \setbeamercolor*{example text}{fg=vert}
+  \setbeamercolor*{alerted text}{fg=rose}
+  
+  \setbeamercolor*{footnotemark}{fg=bleu}
+  \setbeamercolor*{footnote}{fg=mauve}
+    
+  \setbeamercolor*{itemize item}{fg=mauve}
+  \setbeamercolor*{itemize subitem}{fg=bleu}
+  \setbeamercolor*{itemize subsubitem}{fg=vert}
+  \setbeamercolor*{enumerate item}{fg=mauve}
+  \setbeamercolor*{enumerate subitem}{fg=bleu}
+  \setbeamercolor*{enumerate subsubitem}{fg=vert}
+  \setbeamercolor*{description item}{fg=mauve}
+  
+  \setbeamercolor*{subsection in toc}{fg=bleu}
+  
+  \setbeamercolor{block title}{bg=bleu,fg=light}
+  \setbeamercolor{block title alerted}{bg=rose, fg=light}
+  \setbeamercolor{block title example}{bg=vert, fg=light}
+  
+  \setbeamercolor{progressbar}{fg=bleu, bg=lighter}
+}
+
+\def\palecolors{
+  \setbeamercolor*{title}{fg=bleu pale}
+  \setbeamercolor*{standout}{fg=bleu pale}
+  
+  \setbeamercolor*{example text}{fg=vert pale}
+  \setbeamercolor*{alerted text}{fg=rose pale}
+  
+  \setbeamercolor*{footnotemark}{fg=bleu pale}
+  \setbeamercolor*{footnote}{fg=mauve pale}
+    
+  \setbeamercolor*{itemize item}{fg=mauve pale}
+  \setbeamercolor*{itemize subitem}{fg=bleu pale}
+  \setbeamercolor*{itemize subsubitem}{fg=vert pale}
+  \setbeamercolor*{enumerate item}{fg=mauve pale}
+  \setbeamercolor*{enumerate subitem}{fg=bleu pale}
+  \setbeamercolor*{enumerate subsubitem}{fg=vert pale}
+  \setbeamercolor*{description item}{fg=mauve pale}
+  
+  \setbeamercolor*{subsection in toc}{fg=bleu pale}
+  
+  \setbeamercolor{block title}{bg=bleu pale,fg=light}
+  \setbeamercolor{block title alerted}{bg=rose pale, fg=light}
+  \setbeamercolor{block title example}{bg=vert pale, fg=light}
+  
+  \setbeamercolor{progressbar}{fg=bleu pale, bg=lighter}
+}
+
+\def\darkmode{
+  \setbeamercolor*{normal text}{fg=lighter}
+  \setbeamercolor*{background canvas}{bg=dark}
+  \setbeamercolor*{structure}{fg=lighter}
+    
+  \setbeamercolor*{footer}{fg=light}
+  \setbeamercolor*{footer text}{fg=light}
+  
+  \setbeamercolor*{section in toc}{fg=light}
+  
+  \setbeamercolor*{section page}{fg=light}
+  \setbeamercolor*{subsection page}{fg=light}
+}
+
+\def\lightmode{
+  \setbeamercolor*{normal text}{fg=darker}
+  \setbeamercolor*{background canvas}{bg=lighter}
+  \setbeamercolor*{structure}{fg=darker}
+  
+  \setbeamercolor*{footer}{fg=dark}
+  \setbeamercolor*{footer text}{fg=dark}
+  
+  \setbeamercolor*{section in toc}{fg=dark}
+  
+  \setbeamercolor*{section page}{fg=dark}
+  \setbeamercolor*{subsection page}{fg=dark}
+}
+
+\ifx\beamer@theme@mode\beamer@theme@darkmode%
+  \darkmode
+\else%
+  \ifx\beamer@theme@mode\beamer@theme@lightmode
+    \lightmode
+  \else%
+    \PackageError{beamercolorthemeMasterII}{Unknow style option `\beamer@theme@mode`}{extra help}
+  \fi%
+\fi%
+
+\ifx\beamer@theme@color\beamer@theme@brightcolor%
+  \brightcolors
+  
+  \hypersetup{
+    colorlinks=true,
+    linkcolor={orange},
+    citecolor={vert},
+    urlcolor={orange}
+  }
+\else%
+  \ifx\beamer@theme@color\beamer@theme@palecolor%
+    
+    \palecolors
+    
+    \hypersetup{
+      colorlinks=true,
+      linkcolor={orange pale},
+      citecolor={vert pale},
+      urlcolor={orange pale}
+    }
+  \else%
+    \PackageError{beamercolorthemeMasterII}{Unknow style option `\beamer@theme@color`}{extra help}
+  \fi%
+\fi%
+
+\setbeamercolor*{section in head/foot}{fg=light, bg=darker}
+\setbeamercolor*{page number in head/foot}{fg=lighter, bg=dark}
+\setbeamercolor*{number in head/foot}{fg=light, bg=darker}
+
+\setbeamercolor*{header primary}{bg=darker}
+\setbeamercolor*{frame title}{fg=light}
+\setbeamercolor*{frame subtitle}{fg=lighter}
+
+\setbeamercolor*{bibliography entry author}{fg=light}
+\setbeamercolor*{bibliography entry title}{fg=light}
+\setbeamercolor*{bibliography entry location}{fg=light}
+\setbeamercolor*{bibliography entry note}{fg=light}
+
+\setbeamercolor*{block body}{bg=light, fg=dark}
+\setbeamercolor*{block body alerted}{bg=light, fg=dark}
+\setbeamercolor*{block body example}{bg=light, fg=dark}
+
+
+%%%%%%%%%%%%%%%%%%%%%
+%   Frame Ttile   
+%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{frametitle continuation}{}
+
+\def\myframetitle{
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\paperwidth, leftskip=0.2cm, rightskip=0.2cm, dp=0.25cm]{header primary}%
+    \vskip0ex
+    {\usebeamercolor*[fg]{frame title}\usebeamerfont{header title}\insertframetitle} 
+    \hfill
+    \ifnum\insertframenumber>0
+      \ifx\beamer@theme@numbering\beamer@theme@fractionnumbering%
+       {\usebeamercolor*[fg]{page number in head/foot} \insertframenumber/\insertmainframenumber}
+      \else%
+        \ifx\beamer@theme@numbering\beamer@theme@numbernumbering%
+          {\usebeamercolor*[fg]{page number in head/foot} \insertframenumber}
+        \else
+          \ifx\beamer@theme@numbering\beamer@theme@nonenumbering%
+          \else
+            \PackageError{beamercolorthemeMasterII}{Unknow style option `\beamer@theme@numbering`}{extra help}
+          \fi
+        \fi
+      \fi
+    \fi
+    \ifx\insertframesubtitle\empty
+    \else 
+      \newline\vskip-3.5ex
+      {\usebeamercolor*[fg]{frame subtitle}\small\insertframesubtitle}
+    \fi
+  \end{beamercolorbox}%
+  \nointerlineskip
+}
+
+\setbeamertemplate{frametitle}{
+  \myframetitle
+}
+
+%%%%%%%%%%%%%%%%%%%%%
+%   Frame Footline   
+%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{pied de page}{%
+    \begin{beamercolorbox}[wd=\paperwidth, leftskip=2ex, rightskip=2ex, colsep*=1ex, vmode]{section in head/foot}
+      \includegraphics[height=6ex]{img/logo.pdf}
+      \hfill\raisebox{2ex}{\inserttitle}\hfill
+      \includegraphics[height=6ex]{img/uca.pdf}
+    \end{beamercolorbox}%
+}
+\setbeamertemplate{footline}{%
+    \usebeamertemplate{pied de page}
+}
+
+%%%%%%%%%%%%%%%%%%%%%
+%   Progressbar  
+%%%%%%%%%%%%%%%%%%%%%
+\newlength{\@progressinheadfoot}
+\newlength{\@progressinheadfoot@linewidth}
+\setlength{\@progressinheadfoot@linewidth}{0.3ex}
+\setbeamertemplate{progressbar}{
+  \nointerlineskip
+  \setlength{\@progressinheadfoot}{%
+    \paperwidth * \ratio{\insertframenumber pt}{\insertmainframenumber pt}%
+  }%
+  \begin{beamercolorbox}[wd=\paperwidth]{progressbar}
+    \begin{tikzpicture}
+      \fill[bg] (0,0) rectangle (\paperwidth, \@progressinheadfoot@linewidth);
+      \fill[fg] (0,0) rectangle (\@progressinheadfoot, \@progressinheadfoot@linewidth);
+    \end{tikzpicture}%
+  \end{beamercolorbox}
+}
+
+\ifx\beamer@theme@progressbar\beamer@theme@frametitleprogressbar%
+  \addtobeamertemplate{frametitle}{}{%
+    \usebeamertemplate*{progressbar}
+  }
+\else
+  \ifx\beamer@theme@progressbar\beamer@theme@footprogressbar%
+    \addtobeamertemplate{footline}{}{%
+      \usebeamertemplate*{progressbar}
+    }
+  \else
+    \ifx\beamer@theme@progressbar\beamer@theme@noneprogressbar%
+    \else
+      \PackageError{beamercolorthemeMasterII}{Unknow style option `\beamer@theme@progressbar`}{extra help}
+    \fi
+  \fi
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%
+%   Title Page  
+%%%%%%%%%%%%%%%%%%%%%
+\def\insertsupervisor{}
+\def\supervisedby{Encadré par}
+\addto\extrasenglish{\gdef\supervisedby{Supervised by}}
+\def\supervisor#1{\gdef\insertsupervisor{#1}}
+
+\setbeamertemplate{title page}{
+  \begin{minipage}[b][\paperheight]{\textwidth}
+    \ifx\inserttitlegraphic\@empty\else\usebeamertemplate*{title graphic}\fi
+    \vfill%
+    \ifx\inserttitle\@empty\else\usebeamertemplate*{title}\fi
+    \ifx\insertsubtitle\@empty\else\usebeamertemplate*{subtitle}\fi
+    \usebeamertemplate*{title separator}
+    \ifx\beamer@shortauthor\@empty\else\usebeamertemplate*{author}\fi
+    \ifx\insertinstitute\@empty\else\usebeamertemplate*{institute}\fi
+    \ifx\insertsupervisor\@empty\else\usebeamertemplate*{supervisor}\fi
+    \vfill
+    \ifx\insertdate\@empty\else\usebeamertemplate*{date}\fi
+    \vspace*{5mm}
+  \end{minipage}
+}
+\def\maketitle{%
+  \ifbeamer@inframe
+    \titlepage
+  \else
+    \frame[plain,noframenumbering]{\titlepage}
+  \fi
+}
+\def\titlepage{%
+  \usebeamertemplate{title page}
+}
+
+\def\@logo{img/logoSmallFond.pdf}
+\def\logo#1{\gdef\logo{#1}}
+\titlegraphic{\includegraphics[height=.3\textheight]{\@logo}}
+
+\setbeamertemplate{title graphic}{
+  \vbox to 0pt {
+    \vspace*{2em}
+    \hfill\inserttitlegraphic%
+  }%
+  \nointerlineskip%
+}
+\setbeamertemplate{title}{
+  \raggedright%
+  \linespread{1.0}%
+  \inserttitle%
+  \par%
+  \vspace*{0.5em}
+}
+\setbeamertemplate{subtitle}{
+  \raggedright%
+  \insertsubtitle%
+  \par%
+  \vspace*{0.5em}
+}
+\newlength{\title@linewidth}
+\setlength{\title@linewidth}{0.4pt}
+\setbeamertemplate{title separator}{
+  \begin{tikzpicture}
+    \fill[fg] (0,0) rectangle (\textwidth, \title@linewidth);
+  \end{tikzpicture}%
+  \par%
+}
+\setbeamertemplate{author}{
+  \vspace*{2em}
+  \usebeamerfont{author}
+  \insertauthor%
+  \par%
+  \vspace*{0.25em}
+}
+\setbeamertemplate{date}{
+  \ %
+  \hfill%
+  \usebeamerfont{date}
+  {\scriptsize\insertdate}%
+  \hfill%
+  \ %
+  \par%
+}
+\setbeamertemplate{institute}{
+  \vspace*{3mm}
+  \usebeamerfont{institute}
+  \insertinstitute%
+  \par%
+}
+\setbeamertemplate{supervisor}{
+  \usebeamerfont{supervisor}
+  \raggedright%
+  \hfill%
+  \supervisedby%
+  \par%
+  \hfill%
+  \insertsupervisor%
+  \par%
+  \vspace*{0.5em}
+}
+
+\providebool{@standout}
+\define@key{beamerframe}{standout}[true]{%
+  \booltrue{@standout}
+  \setbeamertemplate{footline}{}%
+  \begingroup
+    \setkeys{beamerframe}{c}
+    \setkeys{beamerframe}{noframenumbering}
+    \centering
+    \usebeamercolor[fg]{standout}
+    \usebeamerfont{standout}
+}
+\apptocmd{\beamer@reseteecodes}{%
+  \ifbool{@standout}{
+    \endgroup
+    \boolfalse{@standout}
+    \setbeamertemplate{footline}{\usebeamertemplate{pied de page}}
+    
+    \ifx\beamer@theme@progressbar\beamer@theme@footprogressbar%
+      \addtobeamertemplate{footline}{}{%
+        \usebeamertemplate*{progressbar}
+      }
+    \fi
+  }{}
+}{}{}
+
+\mode<all>
