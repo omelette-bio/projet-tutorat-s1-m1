@@ -77,7 +77,8 @@ breaklines=true,                % Line wrapping
 \tableofcontents
 
 \clearpage
-\section{Summary}
+\section*{Summary}
+\addcontentsline{toc}{section}{Summary}
 This report investigates the impact of compiler optimizations on application performance by comparing four compilers—\gcc, \clang, \icx, and \comp—across multiple optimization levels: 
 \optizero, \optione, \optitwo, \optithree, and \optisize. 
 \newline
@@ -89,7 +90,8 @@ tasks due to its robust optimization capabilities, while \clang excels in \textt
 \icx and \comp, though less performant, are designed for specific use cases like hardware-specific tuning and formally verified code, respectively. The findings emphasize the importance 
 of choosing the right compiler for specific tasks and suggest directions for further research, including energy-efficient optimizations and real-world mixed-language applications.
 \clearpage
-\section{Introduction}
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
 The tutoring project titled "Optimizing Application Performance through Compilation Optimization" explores how compilers improve the generated code 
 using various optimization levels: \optizero, \optione, \optitwo, \optithree, and \optisize. \newline
 The different optimization levels goes from \optizero, which means no optimization, to \optithree, which enables the most optimizations, but also \optisize, which
@@ -103,7 +105,8 @@ This project is divided into two main phases:
 These steps allow for the evaluation of compilers not only in terms of speed but also by identifying the specific characteristics of each optimization level.
 
 
-\section{State of the Art}
+\section*{State of the Art}
+\addcontentsline{toc}{section}{State of the Art}
 Compiler optimizations play a crucial role in improving program performance by transforming source code into highly efficient machine code. Modern compilers like \gcc, \clang, and \icx 
 employ a range of techniques to optimize loops, eliminate redundant computations, and streamline memory usage. For example, \gcc’s loop unrolling and vectorization strategies enable 
 significant performance gains in computationally intensive workloads, while \clang’s adherence to modern \texttt{C++} standards gives it an edge in handling advanced type systems and 
@@ -126,7 +129,7 @@ In this part will be presented the environnement of the experimentations, on whi
 \subsection*{Hardware}
 In this part, the hardware part of the computer will be explored. \newline
 To explore the hardware of a computer on linux, the folder \texttt{/cpu} can be explored, it gives us the \textit{topology} of the cpu, like which threads are on each cores, which caches are on each cores, discover what is the cache line size etc...\newline
-But there are also a lot of linux tools that allows to check the hardware's specifications of a computer, and basically doing the job for us. \newline
+But there are also a lot of linux tools that allows to check the hardware's specifications of a computer, and basically do the job for us. \newline
 There are graphical tools such as \texttt{likwid}, which provides the command \texttt{likwid-topology}, or the tool \texttt{hwloc}, which provides \texttt{lstopo}, a command that gives a beautiful GUI of the computer's hardware's specification.
 \begin{description}
     \item[Model name :] 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
@@ -171,7 +174,7 @@ Here is a description of all the software elements used in this benchmark :
 To compare the performance of the different compilers, two programs will be used, the first \texttt{matrix\_multiply}, is a \texttt{C} program 
 that multiplies two matrices to put the result in a third matrix, it is an interesting challenge for optimization because of the presence of 3 nested loops for 
 the calculation. This program will be compiled using \gcc, \clang, \icx and \comp. \newline
-The second program is \texttt{dijkstra} algorithm using \texttt{C++}, the goal behind this is to compare the compilers optimizations when the program has a lot
+The second program is \texttt{dijkstra} algorithm written in \texttt{C++}, the goal behind this is to compare the compilers optimizations when the program has a lot
 of memory usage, because it is in \texttt{C++}, the program will only be compiled with the \texttt{C++} versions of \gcc, \clang and \icx, due to the lack of \texttt{C++}
 compilation from \comp. \newline
 Next, we can mesure time taken by the program by placing the c-function \texttt{gettimeofday()} around the function that we need to calculate, initialisation 
@@ -186,12 +189,11 @@ mesurement is not the main goal, but it can be mesured too. The programs are exe
 \label{fig:image1}
 \end{figure}
 The results for the C program (matrix multiplication) highlight clear differences in how each compiler handles optimizations.\newline
-\gcc stands out as the best-performing compiler for this benchmark. Starting slower at -O0, it quickly improves with each optimization level, reaching the best execution times at 
-\optitwo and \optithree. This suggests that \gcc applies transformations that efficiently address the nested loop structure of matrix multiplication, making it highly suitable for 
-such tasks.
+\gcc stands out as the best-performing compiler for this benchmark. It starts slower at -O0, but quickly improves with each optimization level, reaching the best execution times at 
+\optitwo and \optithree. This suggests that \gcc performs transformations which deal efficiently with the nested loop structure of the matrix multiplication making it suitable for such tasks.
 \newline
 \clang shows a reliable improvement across optimization levels, but it remains behind \gcc. While its performance gains are noticeable, it doesn’t manage to handle the program as 
-efficiently, especially at higher optimization levels. This difference could point to a less aggressive approach to handling the bottlenecks present in nested loops. \newline
+efficiently, especially at higher optimization levels. This difference suggests a less aggressive approach to handling the bottlenecks present in nested loops. \newline
 Despite being developed for Intel architectures, \icx does not perform as well as expected. Its optimizations do improve execution times, but not enough to compete with\gcc or \clang. 
 This makes \icx less effective for matrix-heavy computations, suggesting it might prioritize other types of workloads. \newline
 \comp delivers the slowest execution times in this benchmark, which is in line with its goal of producing formally verified code. While correctness is ensured, 
@@ -233,7 +235,7 @@ If we push further the analysis, we can see there are some points in the program
 \part{Compilers}
 In this part will be presented all the compilers used in this tutorship project, as well as deepening their optimization options for each optimizations levels.
 \newline
-The optimizations presented are not exhaustive, only the most important optimizations will be presented, and the method to obtain the optimizations will be given
+The optimizations presented are not exhaustive, only the most important one will be presented, and the method to obtain the optimizations will be given
 for each compiler, so the experiments can be reproduced.
 
 
@@ -253,7 +255,7 @@ gcc --help=optimizers -Q -On
 now have some optimization flags enabled, 53 to be more precise. For the most, optimizations at this level are analysis options.
 \newline\newline
 A part of the optimizations concerns loop optimizations, with the option \newline \texttt{-faggressive-loop-optimizations}, \gcc enables, as its name suggests, a lot of loop optimizations, 
-such as \textbf{loop fusion} and \textbf{fission}, \textbf{loop unrolling}, \textbf{loop peeling}. \newline
+such as \textbf{loop fusion} and \textbf{fission}, \textbf{loop unrolling}, \textbf{loop peeling}. \newline\newline
 Next is the dead code elimination, \gcc can also remove every line of code that isn't used, this doesn't impact the execution speed, but reduces the size of the generated code.\newline
 And finally are the peephole optimizations this option introduces optimizations on a reduced window, optimizing redundant register moves, redundant calculations, etc.
 \newline
@@ -415,7 +417,7 @@ diff -wy --suppress-common-lines \
     <(echo 'int;' | clang -xc - -o /dev/null -\#\#\# 2>&1 | tr " " "\n" | grep -v /tmp) \
     <(echo 'int;' | clang -xc -On - -o /dev/null -\#\#\# 2>&1 | tr " " "\n" | grep -v /tmp)
 \end{verbatim}
-Another way of doing this, which gives way more optimizations is the combination of the commands 
+Another way of doing this, which gives way more optimizations is the combination of the following commands, which will give us optimizations activated for a specific program. 
 \begin{verbatim}
 clang -O2 -emit-llvm -S matrix_multiply.c -o mat_mult.ll
 opt -O2 -debug-pass-manager mat_mult.ll -o mat_mult.ll
@@ -424,18 +426,18 @@ opt -O2 -debug-pass-manager mat_mult.ll -o mat_mult.ll
 \subsection*{Optimizations enabled at \optizero}
 \clang like the other compilers doesn't enable a lot of optimizations, the optimizations are called \textbf{AlwaysInlinerPass}, which inlines functions marked
 with the \texttt{always\_inline} attribute, \textbf{CoroConditionalWrapper}, which is related to coroutines support in C++, which is a function that can be 
-paused and resumed, enabling asynchronous and cooperative task management. Finally, \textbf{VerifierPass} ensures that the LLVM Intermediate Representation 
+paused and resumed, enabling asynchronous and cooperative task management. \newline 
+Finally, \textbf{VerifierPass} ensures that the LLVM Intermediate Representation 
 generated by the compiler is correct and coherent with the original program.
 
 \subsection*{Optimizations introduced by \optione}
 \textbf{Loop Optimizations} \newline
-At \optione, \clang introduces several important loop optimizations to enhance runtime performance. The \textbf{LoopSimplifyPass} ensures that loops are structured 
-in a canonical form, making them easier to analyze and optimize in subsequent passes. \textbf{LCSSAPass} (Loop-Closed SSA) further prepares loops by transforming 
-them into a representation that facilitates optimizations involving memory access and data dependencies. \textbf{IndVarSimplifyPass} refines induction variables,
-such as loop counters, simplifying loop conditions and arithmetic to improve execution flow. 
-Meanwhile, \textbf{LoopRotatePass} adjusts loop headers, improving branch prediction and enabling opportunities for more aggressive transformations like unrolling
-in later optimization stages. 
-Though full unrolling and vectorization are not fully activated at this level, these preparatory transformations lay the groundwork for higher-level optimizations while maintaining reasonable compilation times.
+At \optione, \clang applies several key loop optimizations to improve runtime performance. The \textbf{LoopSimplifyPass} restructures loops into a canonical form, making them more 
+straightforward to analyze and optimize in later stages. \textbf{LCSSAPass} (Loop-Closed SSA) transforms loops to a representation that simplifies memory access and dependency analysis. 
+\textbf{IndVarSimplifyPass} refines induction variables, like loop counters, simplifying conditions and arithmetic for better execution flow. Additionally, the \textbf{LoopRotatePass} 
+adjusts loop headers to enhance branch prediction and pave the way for more aggressive transformations, such as unrolling, in higher optimization levels. 
+While full unrolling and vectorization are not yet fully utilized at this stage, these preparatory steps create a solid foundation for more advanced optimizations, 
+all while keeping compilation times reasonable.
 \newline\newline
 \textbf{Coroutines}\newline
 For programs utilizing coroutines, \clang introduces key transformations to handle their unique execution model. 
@@ -447,7 +449,7 @@ coroutine-based workflows. These coroutine-specific passes ensure that \clang ca
 \textbf{Global Optimizations}\newline
 \clang’s \optione also includes broader global optimizations that significantly impact performance and code quality. \textbf{IPSCCPPass} (Interprocedural Sparse Conditional Constant Propagation) 
 enables the propagation of constant values across function boundaries, revealing opportunities for eliminating redundant computations and simplifying control flow. 
-The \textbf{LICMPass} (Loop-Invariant Code Motion) complements loop optimizations by hoisting computations that remain constant across iterations, reducing repeated calculations. 
+The \textbf{LICMPass} (Loop-Invariant Code Motion) complements loop optimizations by moving computations that remain constant across iterations out of the loop, reducing redundant calculations. 
 Additionally, \textbf{DeadArgumentEliminationPass} simplifies function signatures by removing unused arguments, and \textbf{MemCpyOptPass} optimizes memory operations like \texttt{memcpy} 
 by replacing them with more efficient alternatives where possible. Together, these optimizations strike a balance between improving runtime performance and maintaining fast compilation 
 speeds, providing a strong baseline for further enhancements at higher optimization levels.
@@ -472,8 +474,8 @@ In conclusion, it is essential to choose the right compiler for specific tasks. 
 each compiler has its strength in different scenarios. 
 \newline\newline
 This analysis opens the door for future exploration, such as investigating how compilers can optimize code to be more energy-efficient. 
-Because since the beginning of computer science the major concern was pure performance and less energy-efficiency, this could be where technological advancements truly shine, 
-not just in creating more powerful computers, but in developing more efficient ones. 
+Because since the beginning of computer science the major concern was pure performance and less energy-efficiency, this could be where technological advancements truly 
+shine--not just in creating more powerful computers--but in developing more efficient ones. 
 A prime example of this approach is Apple's ecosystem, which achieves impressive performance without consuming excessive energy. 
 Future innovations could follow this model, focusing on both power and efficiency.
 
