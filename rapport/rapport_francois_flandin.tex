@@ -72,13 +72,7 @@ breaklines=true,                % Line wrapping
 
 \maketitle
 
-
-\clearpage
-\tableofcontents
-
-\clearpage
-\section*{Summary}
-\addcontentsline{toc}{section}{Summary}
+\begin{abstract}
 This report investigates the impact of compiler optimizations on application performance by comparing four compilers—\gcc, \clang, \icx, and \comp—across multiple optimization levels: 
 \optizero, \optione, \optitwo, \optithree, and \optisize. 
 \newline
@@ -87,9 +81,31 @@ times, highlighting how different compilers handle computationally intensive tas
 \newline
 The analysis shows that \gcc consistently outperforms others in \texttt{C}
 tasks due to its robust optimization capabilities, while \clang excels in \texttt{C++} scenarios, leveraging its deeper understanding of modern constructs. \newline
-\icx and \comp, though less performant, are designed for specific use cases like hardware-specific tuning and formally verified code, respectively. The findings emphasize the importance 
-of choosing the right compiler for specific tasks and suggest directions for further research, including energy-efficient optimizations and real-world mixed-language applications.
+\icx and \comp, though less performant, are designed for specific use cases like hardware-specific tuning and formally verified code, respectively. \newline
+The findings emphasize the importance of choosing the right compiler for specific tasks and suggest directions for further research, including energy-efficient 
+optimizations and real-world mixed-language applications.
+\end{abstract}
+
 \clearpage
+
+\tableofcontents
+
+\clearpage
+% \section*{Summary}
+% \addcontentsline{toc}{section}{Summary}
+% This report investigates the impact of compiler optimizations on application performance by comparing four compilers—\gcc, \clang, \icx, and \comp—across multiple optimization levels: 
+% \optizero, \optione, \optitwo, \optithree, and \optisize. 
+% \newline
+% Two programs, a matrix multiplication in \texttt{C} and Dijkstra’s algorithm in \texttt{C++}, were used to evaluate execution 
+% times, highlighting how different compilers handle computationally intensive tasks and memory-heavy workloads. 
+% \newline
+% The analysis shows that \gcc consistently outperforms others in \texttt{C}
+% tasks due to its robust optimization capabilities, while \clang excels in \texttt{C++} scenarios, leveraging its deeper understanding of modern constructs. \newline
+% \icx and \comp, though less performant, are designed for specific use cases like hardware-specific tuning and formally verified code, respectively. The findings emphasize the importance 
+% of choosing the right compiler for specific tasks and suggest directions for further research, including energy-efficient optimizations and real-world mixed-language applications.
+
+\clearpage
+
 \section*{Introduction}
 \addcontentsline{toc}{section}{Introduction}
 The tutoring project titled "Optimizing Application Performance through Compilation Optimization" explores how compilers improve the generated code 
@@ -357,7 +373,8 @@ There are also code-removing optimizations such as \textbf{dead-code elimination
 \subsection*{Optimizations introduced by \optithree}
 It enables all the same optimizations as \optitwo but add more aggressive loop transformations such as \textbf{loop fusion}, \textbf{block-unroll-and-jam}, with these two options, the compiler expands and find the best fusions/jams in the loops and \textbf{collapsing-IF-statements}, where multiple successive if are combined into one to reduce branching therefore gaining performances.
 
-
+\subsection*{Optimizations introduced by \optisize}
+The documentation doesn't provide any information about it, except the usual "like \optitwo but optimizes for code size".
 
 
 
