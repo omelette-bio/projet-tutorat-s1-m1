@@ -255,7 +255,9 @@ gcc --help=optimizers -Q -On
 now have some optimization flags enabled, 53 to be more precise. For the most, optimizations at this level are analysis options.
 \newline\newline
 A part of the optimizations concerns loop optimizations, with the option \newline \texttt{-faggressive-loop-optimizations}, \gcc enables, as its name suggests, a lot of loop optimizations, 
-such as \textbf{loop fusion} and \textbf{fission}, \textbf{loop unrolling}, \textbf{loop peeling}. \newline\newline
+such as \textbf{loop unrolling}, which reduces loop overhead by duplicating the loop body multiple times, minimizing the number of iterations and improving execution efficiency, 
+\textbf{loop fusion}, which combines loops that access the same data into a single loop, reducing overhead from multiple passes over the data, or \textbf{loop peeling}, which moves loops
+special cases outside of the loop. \newline\newline
 Next is the dead code elimination, \gcc can also remove every line of code that isn't used, this doesn't impact the execution speed, but reduces the size of the generated code.\newline
 And finally are the peephole optimizations this option introduces optimizations on a reduced window, optimizing redundant register moves, redundant calculations, etc.
 \newline
@@ -297,11 +299,9 @@ cache misses. Also, aligning labels and jumps allows to decrease branch predicti
 
 \subsection*{Optimizations introduced by \optithree}
 \textbf{Loop Optimizations} \newline
-\gcc \optithree enables mostly further loops optimizations, such as \texttt{loop peeling}, which removes special cases in the loop and put them outside of the 
-loop, then, \texttt{loop jamming} combines two loops with the same scope/range into a single one, enabling more optimizations, and is generally combined with \texttt{loop unrolling}.
-\newline
-\texttt{loop unrolling} reduces loop overhead by duplicating the loop body multiple times, minimizing the number of iterations and improving execution efficiency, also 
-\texttt{loop interchange}, swap two loops in a nested loop, this allows to put the most changing variable to the consecutive elements in memory, instead of having the most 
+\gcc \optithree enables mostly further loops optimizations, such as \texttt{loop peeling}, \texttt{loop jamming}, which combines independent loops (that may or may not access the 
+same data) into a single loop, and is generally combined with \texttt{loop unrolling}.\newline
+\texttt{loop interchange}, which swap two loops in a nested loop, this allows to put the most changing variable to the consecutive elements in memory, instead of having the most 
 changing variable to separate elements in memory, it's very useful in programs such as \texttt{matrix multiplication}. 
 \newline
 Finally, \texttt{loop splitting} allows simplification of a loop 
@@ -346,8 +346,11 @@ will be replaced by
 \begin{verbatim}
     int b = 5 + i + 3
 \end{verbatim}
-These two options complete each other really well, because imagine that the variable \texttt{i} was a constant, it would be replaced by its value, hence further optimizing the program.\newline\newline
-Additionnal optimizations are introduced, like \textbf{loop unrolling}, which reduces the number of iterations by executing multiple iterations within a single loop cycle,\textbf{peephole optimizations}, which examines small code fragments to identify and replace inefficiencies, such as redundant instructions or suboptimal sequences, improving code quality. Or even \textbf{optimized code selection}, replaces inefficient instructions or code sequences with more efficient alternatives.
+These two options complete each other really well, because imagine that the variable \texttt{i} was a constant, it would be replaced by its value, hence further optimizing the program.
+\newline\newline
+Additionnal optimizations are introduced, like \textbf{loop unrolling}, \textbf{peephole optimizations}, which examines small code fragments to identify and replace inefficiencies,
+such as redundant instructions or suboptimal sequences, improving code quality. Or even \textbf{optimized code selection}, which replaces inefficient instructions or code sequences with 
+more efficient alternatives.
 \newline\newline
 There are also code-removing optimizations such as \textbf{dead-code elimination}, \textbf{dead-store elimination}, and \textbf{dead static function elimination} which does not really improves performance but can help reduce the weight put on the CPU.
 
@@ -461,7 +464,8 @@ computations, and \textbf{DSEPass} (Dead Store Elimination), which removes unnec
 independent operations for SIMD, while \textbf{JumpThreadingPass} simplifies control flow by bypassing unnecessary conditions. Together, these key passes 
 significantly improve execution efficiency and streamline code generation for both performance-critical and size-constrained applications.
 
-\section{Conclusion}
+\section*{Conclusion}
+\addcontentsline{toc}{section}{Conclusion}
 This project has given us a better understanding of how various compilers handle optimizations and how these optimizations impact performance. \newline
 The experiments revealed that \gcc is the top performer when it comes to optimizing nested loops in \texttt{C} programs, consistently delivering superior results. On the other hand, 
 \clang showed its strength with \texttt{C++} workloads, surpassing \gcc in tasks like Dijkstra’s algorithm thanks to its deep understanding of modern \texttt{C++} features.
