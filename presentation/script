@@ -29,7 +29,11 @@ The experiences consist in compiling two programs, a matrix multiplication and a
 performances between each configurations.
 To mesure the time taken by each program, the function gettimeofday() is placed at the beginning and at the end of the computation to mesure the total time taken
 by the computation, the initialisation was not considered, to see which was the most efficient compiler with each algorithm.
+The size of the matrix is calculated by 2 times the largest cache, so that the matrix is stored in the memory, to simulate a real life situation where
+other process run on the same computer and access the same ressources.
 
 2.4 Results
+
+
 
 3. Compilers

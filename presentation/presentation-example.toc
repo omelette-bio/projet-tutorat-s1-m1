@@ -1,2 +1,4 @@
 \babel@toc {french}{}\relax 
-\beamer@sectionintoc {1}{Environnement}{4}{1}{1}
+\beamer@sectionintoc {1}{Environnement}{3}{1}{1}
+\beamer@sectionintoc {2}{Method}{8}{1}{2}
+\beamer@sectionintoc {3}{Results}{8}{1}{3}

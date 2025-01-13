@@ -34,21 +34,21 @@
         \end{block}
     \end{frame}
     
-    \begin{frame}[noframenumbering]{Content}
-    \tableofcontents
-    \end{frame}
-    
     \part{Experience}
     \section{Environnement}
-    
-    \begin{frame}{Obtention}
+    \begin{frame}[standout]
+    Experience
+    \end{frame}
+    \begin{frame}{Computer Architecture Obtention Method}
         Several methods are available on linux
         \begin{block}{\texttt{/cpu} folder}
-            Navigating the folder can give information about processor's topology, cache levels, number of cpus, cache repartition....
+            Navigating the folder can give information about processor's topology, cache levels, number of cpus, cache repartition, etc.
         \end{block}
         \begin{block}{\texttt{lscpu} command}
+        Pas encore fait
         \end{block}
         \begin{block}{other tools}
+        Pas encore fait
         \end{block}
     \end{frame}
     
@@ -56,10 +56,10 @@
     \begin{frame}{Architecture : a bit of data}
         \begin{block}{}
             \begin{description}
-                \item[Model name :] 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
-                \item[Adress size :] 39 bits physical, 48 bits virtual
-                \item[Cache line size :] 64 bytes
-                \item[Cores :] 4
+                \item[Model name: ] 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+                \item[Adress size: ] 39 bits physical, 48 bits virtual
+                \item[Cache line size: ] 64 bytes
+                \item[Cores: ] 4
             \end{description}
         \end{block}
     \end{frame}
@@ -109,6 +109,29 @@
     
     
     \section{Results}
+    \begin{frame}[standout]
+    Benchmark results
+    \end{frame}
+    
+    \begin{frame}{Matrix Multiplication Results}
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{img/plots/violin_plot_mat_mult.png}
+    \caption{Evolution of the execution time of the program mat\_mult.c as a function of compiler and optimization level.}
+    \label{fig:image1}
+    \end{figure}
+    \end{frame}
+    
+    \begin{frame}{Dijkstra Results}
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{img/plots/violin_plot_dijkstra.png}
+    \caption{Evolution of the execution time of the program mat\_mult.c as a function of compiler and optimization level.}
+    \label{fig:image2}
+    \end{figure}
+    \end{frame}
+    
+    
     \subsection{Matrix Multiplication}
     \subsection{Dijkstra}
 
