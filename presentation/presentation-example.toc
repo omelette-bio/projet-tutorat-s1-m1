@@ -1,1 +1,2 @@
 \babel@toc {french}{}\relax 
+\beamer@sectionintoc {1}{Environnement}{4}{1}{1}

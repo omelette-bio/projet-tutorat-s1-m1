@@ -115,7 +115,7 @@ compiles to have the most compact code.\newline
 This project is divided into two main phases:
 \begin{itemize}
     \item Experimentation: Compile two programs with four different compilers (\gcc, \icx, \clang, and \comp) at each optimization level, 
-    measure execution times over 12 iterations, and plot the data using \texttt{R}.
+    measure execution times over 12 iterations, and visualize the data using \texttt{R}.
     \item Optimization Analysis: Study the optimization options enabled by each compiler at each level, to better understand their internal mechanisms.
 \end{itemize}
 These steps allow for the evaluation of compilers not only in terms of speed but also by identifying the specific characteristics of each optimization level.
@@ -189,7 +189,8 @@ Here is a description of all the software elements used in this benchmark :
 \section{Experiment method}
 To compare the performance of the different compilers, two programs will be used, the first \texttt{matrix\_multiply}, is a \texttt{C} program 
 that multiplies two matrices to put the result in a third matrix, it is an interesting challenge for optimization because of the presence of 3 nested loops for 
-the calculation. This program will be compiled using \gcc, \clang, \icx and \comp. \newline
+the calculation. Moreover, the size of the matrix will be set to 2 times the size of the largest cache, to simulate a real-world situation, where the program would have to frequently go 
+to memory to store such a wide matrix. This program will be compiled using \gcc, \clang, \icx and \comp. \newline
 The second program is \texttt{dijkstra} algorithm written in \texttt{C++}, the goal behind this is to compare the compilers optimizations when the program has a lot
 of memory usage, because it is in \texttt{C++}, the program will only be compiled with the \texttt{C++} versions of \gcc, \clang and \icx, due to the lack of \texttt{C++}
 compilation from \comp. \newline
@@ -210,7 +211,7 @@ The results for the C program (matrix multiplication) highlight clear difference
 \newline
 \clang shows a reliable improvement across optimization levels, but it remains behind \gcc. While its performance gains are noticeable, it doesn’t manage to handle the program as 
 efficiently, especially at higher optimization levels. This difference suggests a less aggressive approach to handling the bottlenecks present in nested loops. \newline
-Despite being developed for Intel architectures, \icx does not perform as well as expected. Its optimizations do improve execution times, but not enough to compete with\gcc or \clang. 
+Despite being developed for Intel architectures, \icx does not perform as well as expected. Its optimizations do improve execution times, but not enough to compete with \gcc or \clang. 
 This makes \icx less effective for matrix-heavy computations, suggesting it might prioritize other types of workloads. \newline
 \comp delivers the slowest execution times in this benchmark, which is in line with its goal of producing formally verified code. While correctness is ensured, 
 performance is not a priority, and its constant execution times across optimization levels reflect this limitation.
@@ -251,7 +252,7 @@ If we push further the analysis, we can see there are some points in the program
 \part{Compilers}
 In this part will be presented all the compilers used in this tutorship project, as well as deepening their optimization options for each optimizations levels.
 \newline
-The optimizations presented are not exhaustive, only the most important one will be presented, and the method to obtain the optimizations will be given
+The optimizations presented are not exhaustive, only the most importants will be presented, and the method to obtain the optimizations will be given
 for each compiler, so the experiments can be reproduced.
 
 
@@ -343,7 +344,7 @@ At this level of optimization, \icx starts by introducing \textbf{data flow anal
 allowing for optimizations.\newline
 Then, the compiler can also reorganize code as he wishes with \textbf{code motion}, which allows to move non-changing result operations out of loop to avoid 
 recomputing it over and over, and \textbf{instruction scheduling}, which allows to change the order of instructions, to hide memory latency for exemple, 
-or doing something while something heavier is done. It is done to reduce CPU stall.
+or working on a task while a heavier task is done. It is done to reduce CPU stall.
 \newline\newline
 Other optimizations are also enabled, \textbf{strength reduction}, that changes heavy operations for cheaper ones, like switching from a multiplication to a bit shift, \textbf{test replacement}, that simplifies loops' conditions for example : 
 \begin{verbatim}
@@ -368,7 +369,7 @@ Additionnal optimizations are introduced, like \textbf{loop unrolling}, \textbf{
 such as redundant instructions or suboptimal sequences, improving code quality. Or even \textbf{optimized code selection}, which replaces inefficient instructions or code sequences with 
 more efficient alternatives.
 \newline\newline
-There are also code-removing optimizations such as \textbf{dead-code elimination}, \textbf{dead-store elimination}, and \textbf{dead static function elimination} which does not really improves performance but can help reduce the weight put on the CPU.
+There are also code-removing optimizations such as \textbf{dead-code elimination}, \textbf{dead-store elimination}, and \textbf{dead static function elimination} which does not really improves performance but can help reduce the CPU stall.
 
 \subsection*{Optimizations introduced by \optithree}
 It enables all the same optimizations as \optitwo but add more aggressive loop transformations such as \textbf{loop fusion}, \textbf{block-unroll-and-jam}, with these two options, the compiler expands and find the best fusions/jams in the loops and \textbf{collapsing-IF-statements}, where multiple successive if are combined into one to reduce branching therefore gaining performances.

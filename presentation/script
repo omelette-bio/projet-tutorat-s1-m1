@@ -1,0 +1,35 @@
+Hello everyone, my name is Francois, and today i will present you my tutorship project for the first semester.
+
+1. Introduction
+The project is titled "Optimizing Application Performance through Compilation Optimization" and the objective is to explore how compilers optimizes programs
+using several optimizations levels : -O0, -O1, -O2, -O3, -Os. 
+The levels go from -O0, which means no optimizations, to -O3, which enables the most optimizations, and -Os, which aims to compile to have the smallest code.
+
+The project is divided in two parts : 
+    The first is compiling two programs in C/C++ with all optimization levels and all compilers to compare their performances
+    The second is checking which optimization is enabled for each compiler at each optimization level.
+
+2. The experience
+So, I will present the experience, this will concern the material used for the experience, the methods and we will do an analysis of the results.
+
+2.1 The material
+To obtain the informations about the hardware of the computer, we can use multiple methods, first is analysing the folder system of linux, in the /cpu folder, this
+can give us informations about the topology of the computer, number of cpus, cache levels, cache repartition etc. Linux give also the command lscpu, which gives us
+the model name of the processor, the address sizes, cache sizes, etc.
+There are also several tools that give these informations, such as lstopo or likwid-topology, which output the computer's architecture with a nice graphical interface
+
+
+2.2 The software
+For the software part, the experiences were run on a lightweght configuration, where the computer doesn't have access to most of the os's optimizations,
+and where no program can interfere with the execution of the benchmarks, even the graphical interface.
+The tests were run on Fedora v40 WorkStation, and the compilers used are : gcc version 14, icx version 2024.2.1, clang version 18 and ccomp version 3.14.
+
+2.3 Method
+The experiences consist in compiling two programs, a matrix multiplication and a dijkstra algorithm with each optimizations level and compilers, to compare the
+performances between each configurations.
+To mesure the time taken by each program, the function gettimeofday() is placed at the beginning and at the end of the computation to mesure the total time taken
+by the computation, the initialisation was not considered, to see which was the most efficient compiler with each algorithm.
+
+2.4 Results
+
+3. Compilers

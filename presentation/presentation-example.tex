@@ -1,14 +1,115 @@
-\documentclass[french]{beamer}
+\documentclass[english]{beamer}
 \usetheme{MasterII}
 
 \usepackage{macros}
 
-\title{Optimizing application performance through optimizing compilation}
+\title{Optimizing application performance \\ through optimizing compilation}
 \author{Francois Flandin}
 \supervisor{Pr Sid Touati}
 \date{First semester of year 2024-2025}
 
+\newcommand{\gcc}{\texttt{gcc} }
+\newcommand{\icx}{\texttt{icx} }
+\newcommand{\clang}{\texttt{clang} }
+\newcommand{\comp}{\texttt{ccomp} }
+\newcommand{\optizero}{\texttt{-O0} }
+\newcommand{\optione}{\texttt{-O1} }
+\newcommand{\optitwo}{\texttt{-O2} }
+\newcommand{\optithree}{\texttt{-O3} }
+\newcommand{\optisize}{\texttt{-Os} }
+
 \begin{document}
-\maketitle
+    
+    \maketitle
+    
+    \begin{frame}{Introduction}
+        \begin{block}{Objective}
+            Explore how compilers optimizes programs using several optimizations levels : \optizero, \optione, \optitwo, \optithree, \optisize.
+        \end{block}
+        \begin{block}{2 parts to the project}
+            \begin{enumerate}
+            \item Compiling 2 programs in \texttt{C}/\texttt{C++} with each optimization level and compiler to compare performances
+            \item Checking which optimization is enabled for each optimization level and compiler
+            \end{enumerate}
+        \end{block}
+    \end{frame}
+    
+    \begin{frame}[noframenumbering]{Content}
+    \tableofcontents
+    \end{frame}
+    
+    \part{Experience}
+    \section{Environnement}
+    
+    \begin{frame}{Obtention}
+        Several methods are available on linux
+        \begin{block}{\texttt{/cpu} folder}
+            Navigating the folder can give information about processor's topology, cache levels, number of cpus, cache repartition....
+        \end{block}
+        \begin{block}{\texttt{lscpu} command}
+        \end{block}
+        \begin{block}{other tools}
+        \end{block}
+    \end{frame}
+    
+    
+    \begin{frame}{Architecture : a bit of data}
+        \begin{block}{}
+            \begin{description}
+                \item[Model name :] 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+                \item[Adress size :] 39 bits physical, 48 bits virtual
+                \item[Cache line size :] 64 bytes
+                \item[Cores :] 4
+            \end{description}
+        \end{block}
+    \end{frame}
+    
+    
+    \begin{frame}{Architecture : topology}
+        \begin{block}{}
+            \begin{table}[H]
+                \centering
+                \begin{tabular}{|l|c|c|c|c|}
+                    \hline
+                    \multicolumn{5}{|c|}{Graphical Topology} \\
+                    \hline
+                    Cores & \enspace0\enspace\enspace4 &\enspace1\enspace\enspace5 &\enspace2\enspace\enspace6 &\enspace3\enspace\enspace7 \\
+                    \hline
+                    L1 Cache & \enspace48 kB &\enspace48 kB &\enspace48 kB &\enspace48 kB \\
+                    \hline
+                    L2 Cache & 1MB & 1MB & 1MB & 1MB \\
+                    \hline
+                    L3 Cache & \multicolumn{4}{|c|}{8 MB} \\
+                    \hline
+                \end{tabular}
+                \caption{Computer's topology}
+                \label{tab:graph_characteristics}
+            \end{table}
+        \end{block}
+    \end{frame}
+    
+    
+    \begin{frame}{Software}
+        \begin{block}{Configuration}
+            Computer in a lighweight configuration, avoid OS's optimizations and bloat from other programs or graphical interface.
+        \end{block}
+        \begin{block}{OS and compilers}
+            \begin{description}
+                \item[OS: ] Fedora Linux Workstation v40
+                \item[gcc: ] version 14.2.1
+                \item[icx: ] version 2024.2.1
+                \item[clang: ] version 18.1.8
+                \item[ccomp: ] version 3.14
+            \end{description}
+        \end{block}
+    \end{frame}
+    
+    \section{Method}
+    
+    
+    
+    \section{Results}
+    \subsection{Matrix Multiplication}
+    \subsection{Dijkstra}
 
 \end{document}
