@@ -1,39 +1,103 @@
 Hello everyone, my name is Francois, and today i will present you my tutorship project for the first semester.
 
 1. Introduction
-The project is titled "Optimizing Application Performance through Compilation Optimization" and the objective is to explore how compilers optimizes programs
+==slide 1== 49s
+The project is titled "Optimizing Application Performance through Compilation 
+Optimization" and the objective is to explore how compilers optimizes programs
 using several optimizations levels : -O0, -O1, -O2, -O3, -Os. 
-The levels go from -O0, which means no optimizations, to -O3, which enables the most optimizations, and -Os, which aims to compile to have the smallest code.
+The levels go from -O0, which means no optimizations, to -O3, which enables the most 
+optimizations, and -Os, which aims to compile to have the smallest code.
 
 The project is divided in two parts : 
-    The first is compiling two programs in C/C++ with all optimization levels and all compilers to compare their performances
-    The second is checking which optimization is enabled for each compiler at each optimization level.
+    The first is compiling two programs in C/C++ with all optimization levels and 
+    all compilers to compare their performances
+    The second is checking which optimization is enabled for each compiler at each 
+    optimization level.
 
 2. The experience
-So, I will present the experience, this will concern the material used for the experience, the methods and we will do an analysis of the results.
+==slide 1.5== (transition)
+So, I will present the experience, this will concern the material used for the 
+experience, the methods and we will do an analysis of the results.
 
 2.1 The material
-To obtain the informations about the hardware of the computer, we can use multiple methods, first is analysing the folder system of linux, in the /cpu folder, this
-can give us informations about the topology of the computer, number of cpus, cache levels, cache repartition etc. Linux give also the command lscpu, which gives us
-the model name of the processor, the address sizes, cache sizes, etc.
-There are also several tools that give these informations, such as lstopo or likwid-topology, which output the computer's architecture with a nice graphical interface
+==slide n2== 48s
+So as we can see the model of the processor is an intel core i5, with 39 bits 
+of physical memory and 48 bits of virtual memory, the cache line size if 64 bytes, 
+and there are 4 physical cores.
+If we look at the table, we can see the topology of the processor, so there are two 
+logical cores for each physical core, thanks to intel's hyperthreading technology, which
+enables 2 threads to run on a single physical core.
+and we can see the repartitions of caches, L1 and L2 caches are specific to a single 
+physical core whereas L3 cache is reparted between all the cores.
 
 
 2.2 The software
-For the software part, the experiences were run on a lightweght configuration, where the computer doesn't have access to most of the os's optimizations,
-and where no program can interfere with the execution of the benchmarks, even the graphical interface.
-The tests were run on Fedora v40 WorkStation, and the compilers used are : gcc version 14, icx version 2024.2.1, clang version 18 and ccomp version 3.14.
+==slide n3== 1min20s
+For the software part, the experiences were run on a lightweght configuration, 
+where the computer doesn't have access to most of the os' optimizations,
+and where no program can interfere with the execution of the benchmarks, 
+even the graphical interface.
+The tests were run on Fedora v40 WorkStation, and the compilers used are : 
+gcc, which you all know,
+icx, which is intel's compiler for c/c++
+clang, which aims to replace gcc by supporting most of its options but also to 
+avoid GNU licence
+and ccomp, which mean certified compiler, which aims to make the most accurate code
+to the original source code, to avoid bug introduced by compilation.
+
 
 2.3 Method
-The experiences consist in compiling two programs, a matrix multiplication and a dijkstra algorithm with each optimizations level and compilers, to compare the
+==slide n4== 1min13s
+The experiences consist in compiling two programs, a matrix multiplication and a 
+dijkstra algorithm with each optimizations level and compilers, to compare the
 performances between each configurations.
-To mesure the time taken by each program, the function gettimeofday() is placed at the beginning and at the end of the computation to mesure the total time taken
-by the computation, the initialisation was not considered, to see which was the most efficient compiler with each algorithm.
-The size of the matrix is calculated by 2 times the largest cache, so that the matrix is stored in the memory, to simulate a real life situation where
+The size of the matrix is calculated by 2 times the largest cache, so that the matrix 
+is stored in the memory, to simulate a real life situation where
 other process run on the same computer and access the same ressources.
+The size of the graph for dijkstra algorithm is really huge to have a significate 
+execution time.
+To mesure the time taken by each program, the function gettimeofday() is placed at 
+the beginning and at the end of the computation to mesure the total time taken
+by the computation, the initialisation was not considered, to see which was the most 
+efficient compiler with each algorithm.
+Finally, we run each program, so 20 programs in total, 12 times, to then visualize it 
+using R.
 
 2.4 Results
+2.4.1 Matrix Multiplication
+==slide n5== 1min24
+So as you can see, the graph here represent the results of the benchmarks, visualized 
+as violin plots, to see additionnal informations about data repartitions.
+Each column represent a different optimization level, and in each column, we can see
+from left to right, ccomp, clang, gcc and icx.
 
+So what we can get from this is that gcc starts as the least efficient of all 
+compilers, to end as the most efficient, and by a lot.
+Clang is the second most efficient and offer noticeable improvement across compilation
+levels which suggests a less aggressive approach.
+icx not being that quick could mean that the compiler is made for other type of 
+workloads. and ccomp is the least efficient one across all the compilers
 
+==approx 5min34 ici==
 
-3. Compilers
+2.4.2 Dijkstra
+==slide n6==
+The graph present the same structure, but, the main difference here is that ccomp is not here anymore, the reason behind it is that ccomp doesnt have a c++ compiler, and the dijkstra 
+program is made in C++.
+
+So what we can get from this graph, is how gcc compares himself between a program in C and a program in C++, we came from the most optimized code to the least optimized one.
+To understand why it is like that, we need to first do further benchmarks to the program, with profiling tools we can get the usage of a specific function in the global time of a program,
+
+==slide n7==
+if we analyze the proportion of time taken by the function dijkstra, the dijkstra function takes approximately 19% of the whole program for gcc and for clang, it's approx 9% and for icx
+it's 11%, so we can see that gcc takes less time in initialisation than the two others programs, and clang takes less time in the dijkstra computation than the two others.
+but, if we push further the program analysis, we can see the line "inserer la ligne ta race", which includes a c++ type inference, which may be better optimized by clang and icx than gcc.
+
+3. Compilers Optimizations
+==slide n8==
+just a discussion so present some general optimizations, tell which compilers enables them, etc etc.
+Loop optimizations
+gcc, clang and icx can optimize loops to reduce loops' overhead, theses methods relies on modifying the loop's body to reduce redundant computations, 
+and exploit modern hardware capabilities. I will list the common loop optimizations we can find on compilers.
+Loop unrolling consists in reducing the number of iterations in a loop by increasing the number of iteration a loop does in a single iteration, this allows to reduce loops' 
+extra calculation on branch control and managing loop's variable.
