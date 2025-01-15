@@ -3,8 +3,8 @@
             \texttt{gcc --help=optimizers -Q -On}
         \end{block}
         \begin{block}{clang}
-            \texttt{clang -O2 -emit-llvm -S program.c -o program.ll} \newline
-            \texttt{opt -O2 -debug-pass-manager program.ll -o program.ll}
+            \texttt{clang -On -emit-llvm -S program.c -o program.ll} \newline
+            \texttt{opt -On -debug-pass-manager program.ll -o program.ll}
         \end{block}
         \begin{block}{icx and ccomp}
             Everything is inside their documentation.

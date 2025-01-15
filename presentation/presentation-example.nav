@@ -16,29 +16,27 @@
 \headcommand {\beamer@subsectionentry {0}{2}{1}{5}{Environnement}}
 \headcommand {\slideentry {2}{1}{1}{5/5}{Environnement}{0}}
 \headcommand {\beamer@framepages {5}{5}}
-\headcommand {\slideentry {2}{1}{2}{6/6}{Environnement}{0}}
+\headcommand {\beamer@subsectionpages {5}{5}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{6}{Method}}
+\headcommand {\slideentry {2}{2}{1}{6/6}{Method}{0}}
 \headcommand {\beamer@framepages {6}{6}}
-\headcommand {\beamer@subsectionpages {5}{6}}
-\headcommand {\beamer@subsectionentry {0}{2}{2}{7}{Method}}
-\headcommand {\slideentry {2}{2}{1}{7/7}{Method}{0}}
+\headcommand {\beamer@sectionpages {4}{6}}
+\headcommand {\beamer@subsectionpages {6}{6}}
+\headcommand {\sectionentry {3}{Results}{7}{Results}{0}}
+\headcommand {\slideentry {3}{0}{1}{7/7}{}{0}}
 \headcommand {\beamer@framepages {7}{7}}
-\headcommand {\beamer@sectionpages {4}{7}}
 \headcommand {\beamer@subsectionpages {7}{7}}
-\headcommand {\sectionentry {3}{Results}{8}{Results}{0}}
-\headcommand {\slideentry {3}{0}{1}{8/8}{}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{8}{Matrix Multiplication}}
+\headcommand {\slideentry {3}{1}{1}{8/8}{Matrix Multiplication}{0}}
 \headcommand {\beamer@framepages {8}{8}}
 \headcommand {\beamer@subsectionpages {8}{8}}
-\headcommand {\beamer@subsectionentry {0}{3}{1}{9}{Matrix Multiplication}}
-\headcommand {\slideentry {3}{1}{1}{9/9}{Matrix Multiplication}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{9}{Dijkstra}}
+\headcommand {\slideentry {3}{2}{1}{9/9}{Dijkstra}{0}}
 \headcommand {\beamer@framepages {9}{9}}
-\headcommand {\beamer@subsectionpages {9}{9}}
-\headcommand {\beamer@subsectionentry {0}{3}{2}{10}{Dijkstra}}
-\headcommand {\slideentry {3}{2}{1}{10/10}{Dijkstra}{0}}
-\headcommand {\beamer@framepages {10}{10}}
-\headcommand {\slideentry {3}{2}{2}{11/11}{Dijkstra}{0}}
-\headcommand {\beamer@framepages {11}{11}}
-\headcommand {\beamer@sectionpages {8}{11}}
-\headcommand {\beamer@subsectionpages {10}{11}}
+\headcommand {\slideentry {3}{2}{2}{10/11}{Dijkstra}{0}}
+\headcommand {\beamer@framepages {10}{11}}
+\headcommand {\beamer@sectionpages {7}{11}}
+\headcommand {\beamer@subsectionpages {9}{11}}
 \headcommand {\sectionentry {4}{Compilers Optimization}{12}{Compilers Optimization}{0}}
 \headcommand {\slideentry {4}{0}{1}{12/12}{}{0}}
 \headcommand {\beamer@framepages {12}{12}}
@@ -47,23 +45,26 @@
 \headcommand {\slideentry {4}{1}{1}{13/13}{How to get Compilers' Optimizations ?}{0}}
 \headcommand {\beamer@framepages {13}{13}}
 \headcommand {\beamer@subsectionpages {13}{13}}
-\headcommand {\beamer@subsectionentry {0}{4}{2}{14}{Some compilation optimizations}}
-\headcommand {\slideentry {4}{2}{1}{14/17}{Some compilation optimizations}{0}}
+\headcommand {\beamer@subsectionentry {0}{4}{2}{14}{Common optimizations on \texttt {gcc} , \texttt {clang} , \texttt {icx} }}
+\headcommand {\slideentry {4}{2}{1}{14/17}{Common optimizations on \texttt {gcc} , \texttt {clang} , \texttt {icx} }{0}}
 \headcommand {\beamer@framepages {14}{17}}
-\headcommand {\slideentry {4}{2}{2}{18/21}{Some compilation optimizations}{0}}
+\headcommand {\slideentry {4}{2}{2}{18/21}{Common optimizations on \texttt {gcc} , \texttt {clang} , \texttt {icx} }{0}}
 \headcommand {\beamer@framepages {18}{21}}
-\headcommand {\slideentry {4}{2}{3}{22/25}{Some compilation optimizations}{0}}
+\headcommand {\slideentry {4}{2}{3}{22/25}{Common optimizations on \texttt {gcc} , \texttt {clang} , \texttt {icx} }{0}}
 \headcommand {\beamer@framepages {22}{25}}
-\headcommand {\slideentry {4}{2}{4}{26/28}{Some compilation optimizations}{0}}
+\headcommand {\beamer@subsectionpages {14}{25}}
+\headcommand {\beamer@subsectionentry {0}{4}{3}{26}{What about ccomp ?}}
+\headcommand {\slideentry {4}{3}{1}{26/28}{What about ccomp ?}{0}}
 \headcommand {\beamer@framepages {26}{28}}
-\headcommand {\slideentry {4}{2}{5}{29/31}{Some compilation optimizations}{0}}
-\headcommand {\beamer@framepages {29}{31}}
-\headcommand {\slideentry {4}{2}{6}{32/32}{Some compilation optimizations}{0}}
-\headcommand {\beamer@framepages {32}{32}}
-\headcommand {\slideentry {4}{2}{7}{33/33}{Some compilation optimizations}{0}}
-\headcommand {\beamer@framepages {33}{33}}
-\headcommand {\beamer@partpages {1}{33}}
-\headcommand {\beamer@subsectionpages {14}{33}}
-\headcommand {\beamer@sectionpages {12}{33}}
-\headcommand {\beamer@documentpages {33}}
-\headcommand {\gdef \inserttotalframenumber {15}}
+\headcommand {\beamer@sectionpages {12}{28}}
+\headcommand {\beamer@subsectionpages {26}{28}}
+\headcommand {\sectionentry {5}{Conclusion}{29}{Conclusion}{0}}
+\headcommand {\slideentry {5}{0}{1}{29/29}{}{0}}
+\headcommand {\beamer@framepages {29}{29}}
+\headcommand {\slideentry {5}{0}{2}{30/30}{}{0}}
+\headcommand {\beamer@framepages {30}{30}}
+\headcommand {\beamer@partpages {1}{30}}
+\headcommand {\beamer@subsectionpages {29}{30}}
+\headcommand {\beamer@sectionpages {29}{30}}
+\headcommand {\beamer@documentpages {30}}
+\headcommand {\gdef \inserttotalframenumber {13}}

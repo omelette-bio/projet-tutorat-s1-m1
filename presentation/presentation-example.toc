@@ -2,10 +2,12 @@
 \beamer@sectionintoc {1}{Introduction}{2}{0}{1}
 \beamer@sectionintoc {2}{Experience}{4}{0}{2}
 \beamer@subsectionintoc {2}{1}{Environnement}{5}{0}{2}
-\beamer@subsectionintoc {2}{2}{Method}{7}{0}{2}
-\beamer@sectionintoc {3}{Results}{8}{0}{3}
-\beamer@subsectionintoc {3}{1}{Matrix Multiplication}{9}{0}{3}
-\beamer@subsectionintoc {3}{2}{Dijkstra}{10}{0}{3}
+\beamer@subsectionintoc {2}{2}{Method}{6}{0}{2}
+\beamer@sectionintoc {3}{Results}{7}{0}{3}
+\beamer@subsectionintoc {3}{1}{Matrix Multiplication}{8}{0}{3}
+\beamer@subsectionintoc {3}{2}{Dijkstra}{9}{0}{3}
 \beamer@sectionintoc {4}{Compilers Optimization}{12}{0}{4}
 \beamer@subsectionintoc {4}{1}{How to get Compilers' Optimizations ?}{13}{0}{4}
-\beamer@subsectionintoc {4}{2}{Some compilation optimizations}{14}{0}{4}
+\beamer@subsectionintoc {4}{2}{Common optimizations on \texttt {gcc} , \texttt {clang} , \texttt {icx} }{14}{0}{4}
+\beamer@subsectionintoc {4}{3}{What about ccomp ?}{26}{0}{4}
+\beamer@sectionintoc {5}{Conclusion}{29}{0}{5}

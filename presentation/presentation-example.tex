@@ -17,8 +17,8 @@
 \newcommand{\optitwo}{\texttt{-O2} }
 \newcommand{\optithree}{\texttt{-O3} }
 \newcommand{\optisize}{\texttt{-Os} }
-\newcommand{\clgg}{\texttt{C}}
-\newcommand{\cpp}{\texttt{C++}}
+\newcommand{\clgg}{\texttt{C} }
+\newcommand{\cpp}{\texttt{C++} }
 
 \begin{document}
     
@@ -47,35 +47,35 @@
     \end{frame}
     
     \subsection{Environnement}
-    \begin{frame}{Architecture}
-        \begin{block}{}
-            \begin{description}
-                \item[Model name: ] 11th Gen Intel Core i5-1135G7 @ 2.40GHz
-                \item[Adress size: ] 39 bits physical, 48 bits virtual
-                \item[Cache line size: ] 64 bytes
-                \item[Physical cores: ] 4
-            \end{description}
-        \end{block}
+    % \begin{frame}{Architecture}
+    %     \begin{block}{}
+    %         \begin{description}
+    %             \item[Model name: ] 11th Gen Intel Core i5-1135G7 @ 2.40GHz
+    %             \item[Adress size: ] 39 bits physical, 48 bits virtual
+    %             \item[Cache line size: ] 64 bytes
+    %             \item[Physical cores: ] 4
+    %         \end{description}
+    %     \end{block}
         
-        \begin{block}{}
-            \begin{table}[H]
-                \centering
-                \begin{tabular}{|l|c|c|c|c|}
-                    \hline
-                    Cores & 0  4 & 1  5 & 2  6 & 3  7 \\
-                    \hline
-                    L1 Cache & 48 kB & 48 kB & 48 kB & 48 kB \\
-                    \hline
-                    L2 Cache & 1MB & 1MB & 1MB & 1MB \\
-                    \hline
-                    L3 Cache & \multicolumn{4}{|c|}{8 MB} \\
-                    \hline
-                \end{tabular}
-                \caption{Computer's topology}
-                \label{tab:graph_characteristics}
-            \end{table}
-        \end{block}
-    \end{frame}
+    %     \begin{block}{}
+    %         \begin{table}[H]
+    %             \centering
+    %             \begin{tabular}{|l|c|c|c|c|}
+    %                 \hline
+    %                 Cores & 0  4 & 1  5 & 2  6 & 3  7 \\
+    %                 \hline
+    %                 L1 Cache & 48 kB & 48 kB & 48 kB & 48 kB \\
+    %                 \hline
+    %                 L2 Cache & 1MB & 1MB & 1MB & 1MB \\
+    %                 \hline
+    %                 L3 Cache & \multicolumn{4}{|c|}{8 MB} \\
+    %                 \hline
+    %             \end{tabular}
+    %             \caption{Computer's topology}
+    %             \label{tab:graph_characteristics}
+    %         \end{table}
+    %     \end{block}
+    % \end{frame}
     
     
     \begin{frame}{Software}
@@ -132,12 +132,12 @@
         \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{img/plots/violin_plot_dijkstra.png}
-        \caption{Evolution of the execution time of the program mat\_mult.c as a function of compiler and optimization level.}
+        \caption{Evolution of the execution time of the program dijkstra.c as a function of compiler and optimization level.}
         \label{fig:image2}
         \end{figure}
     \end{frame}
     
-    \begin{frame}{Benchmarks Analysis}
+    \begin{frame}[<+->]{Benchmarks Analysis}
         \begin{block}{}
             \begin{table}[H]
             \centering
@@ -152,6 +152,9 @@
             \end{tabular}
             \end{table}
         \end{block}
+        \begin{block}{\cpp type inference}
+            \texttt{for (auto edge : temp\_neighbors)}
+        \end{block}
     \end{frame}
     
     \section{Compilers Optimization}
@@ -165,15 +168,15 @@
             \texttt{gcc --help=optimizers -Q -On}
         \end{block}
         \begin{block}{clang}
-            \texttt{clang -O2 -emit-llvm -S program.c -o program.ll} \newline
-            \texttt{opt -O2 -debug-pass-manager program.ll -o program.ll}
+            \texttt{clang -On -emit-llvm -S program.c -o program.ll} \newline
+            \texttt{opt -On -debug-pass-manager program.ll -o program.ll}
         \end{block}
         \begin{block}{icx and ccomp}
             Everything is inside their documentation.
         \end{block}
     \end{frame}
     
-    \subsection{Some compilation optimizations}
+    \subsection{Common optimizations on \gcc, \clang, \icx}
     
     \begin{frame}[<+->]{Global Optimizations}
         \begin{block}{Peephole optimizations}
@@ -190,6 +193,21 @@
         \end{block}
     \end{frame}
     
+    \begin{frame}[<+->]{Further global optimizations}
+        \begin{block}{Dead argument elimination}
+            Removes unused function arguments.
+        \end{block}
+        \begin{block}{Inlining}
+            Replace function calls with function's body.
+        \end{block}
+        \begin{block}{Constant propagation}
+            Replace constant variable calls with the value.
+        \end{block}
+        \begin{block}{Common subexpression elimination}
+            Reuse previously computed values.
+        \end{block}
+    \end{frame}
+
     \begin{frame}[<+->]{Loop Optimizations}
         \begin{block}{Loop unrolling}
             Reduces loop overhead by duplicating loop's body several times.
@@ -205,35 +223,22 @@
         \end{block}
     \end{frame}
     
-    \begin{frame}[<+->]{Code elimination}
-        \begin{block}{Dead code elimination}
-            Removes part of the code that are not used.
-        \end{block}
-        \begin{block}{Dead store elimination}
-            Removes variable affectations that aren't used through the program.
-        \end{block}
-        \begin{block}{Dead static function elimination}
-            Removes static functions that are never used.
-        \end{block}
-        \begin{block}{Dead argument elimination}
-            Removes unused function arguments.
-        \end{block}
-    \end{frame}
-    
-    \begin{frame}[<+->]{Clang's coroutine's management}
-        Coroutines in C++ are functions that can be paused and resumed, enabling asynchronous and cooperative task management.
-        \begin{block}{CoroEarlyPass}
-            Prepares coroutine constructs by splitting their code into manageable parts.
-        \end{block}
-        \begin{block}{CoroElidePass}
-            Eliminates unnecessary coroutine frames when they are not required.
-        \end{block}
-        \begin{block}{CoroCleanupPass}
-            Finalizes coroutine transformations by removing temporary constructs and generating efficient, optimized code.
-        \end{block}
+    % \begin{frame}[<+->]{Clang's coroutine's management}
+    %     Coroutines in C++ are functions that can be paused and resumed, enabling asynchronous and cooperative task management.
+    %     \begin{block}{CoroEarlyPass}
+    %         Prepares coroutine constructs by splitting their code into manageable parts.
+    %     \end{block}
+    %     \begin{block}{CoroElidePass}
+    %         Eliminates unnecessary coroutine frames when they are not required.
+    %     \end{block}
+    %     \begin{block}{CoroCleanupPass}
+    %         Finalizes coroutine transformations by removing temporary constructs and generating efficient, optimized code.
+    %     \end{block}
 
-    \end{frame}
+    % \end{frame}
     
+    \subsection{What about ccomp ?}
+
     \begin{frame}[<+->]{What about ccomp ?}
         Does not activate much, but it has its optimizations !
         \begin{block}{Constant propagation}
@@ -247,22 +252,21 @@
         \end{block}
     \end{frame}
     
+    \section{Conclusion}
+
     \begin{frame}{Conclusion: Each compiler has its pros}
-        \begin{block}{\gcc}
-            We could see that \gcc is the most efficient in general-purpose tasks and nested loops in \clgg.
-        \end{block}
-        \begin{block}{\clang}
-            \clang was the most performant on \cpp programs using specific features like type inference.
-        \end{block}
-        \begin{block}{\icx}
-            \icx not being the most performant on this configuration could mean that the compiler targets other types of workloads.
-        \end{block}
         \begin{block}{\comp}
             \comp focuses on formally verified code translation so optimizations and performance is not a question.
         \end{block}
-        % \begin{block}{}
-        %     Each compiler has its own purpose, so it's important to choose the right compiler for a specific task.
-        % \end{block}
+        \begin{block}{\gcc}
+            \gcc is the most efficient in general-purpose tasks and nested loops in \clgg.
+        \end{block}
+        \begin{block}{\clang}
+            \clang was the most performant on \cpp programs using specific features like type inferences.
+        \end{block}
+        \begin{block}{\icx}
+            \icx not being the most performant on this configuration could mean that the compiler is made for other types of workloads.
+        \end{block}
     \end{frame}
 
     \begin{frame}{Conclusion}
